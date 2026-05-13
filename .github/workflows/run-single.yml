@@ -75,7 +75,7 @@ jobs:
         run: node dist/index.js
 
       - name: Upload results
-        uses: actions/upload-artifact@v8
+        uses: actions/upload-artifact@v4
         with:
           name: benchmark-${{ inputs.adapter }}-${{ inputs.ver }}-${{ inputs.os }}
           path: result.json
