@@ -1,0 +1,33 @@
+name: commit-results
+
+on:
+  workflow_call:
+    inputs:
+      adapter:
+        required: true
+        type: string
+
+jobs:
+  commit-results:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout results branch
+        uses: actions/checkout@v4
+        with:
+          ref: results
+          path: results
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: .
+
+      - run: ls -al
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Results ${{ inputs.adapter }}"
+          git push origin results

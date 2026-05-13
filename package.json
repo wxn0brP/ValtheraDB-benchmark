@@ -1,0 +1,26 @@
+{
+    "name": "@wxn0brp/db-benchmark",
+    "version": "0.0.1",
+    "main": "dist/index.js",
+    "description": "",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wxn0brP/ValtheraDB-benchmark.git"
+    },
+    "homepage": "https://github.com/wxn0brP/ValtheraDB-benchmark",
+    "author": "wxn0brP",
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "build": "tsc && tsc-alias"
+    },
+    "devDependencies": {
+        "@types/bun": "*",
+        "tsc-alias": "^1",
+        "typescript": "^6"
+    },
+    "dependencies": {
+        "@wxn0brp/db-core": "^0.10.4",
+        "@wxn0brp/db-resolver": "^0.100.1"
+    }
+}

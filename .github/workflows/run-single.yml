@@ -1,0 +1,83 @@
+name: run-single
+
+on:
+  workflow_call:
+    inputs:
+      opts:
+        required: true
+        type: string
+      adapter:
+        required: true
+        type: string
+      ver:
+        required: true
+        type: string
+      os:
+        required: true
+        type: string
+      install:
+        required: false
+        type: string
+
+jobs:
+  benchmark-single:
+    runs-on: ${{ inputs.os }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+
+      # ---- for bun
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        if: inputs.ver == 'bun'
+        with:
+          bun-version: latest
+
+      - name: Install dependencies & build (Bun)
+        if: inputs.ver == 'bun'
+        run: |
+          bun install
+          bun run build
+
+      - name: Install additional dependencies (Bun)
+        if: inputs.ver == 'bun'
+        run: bun add ${{ inputs.install }}
+
+      - name: Run benchmark for adapter (Bun)
+        if: inputs.ver == 'bun'
+        env:
+          VALTHERA_MASTER: ${{ inputs.adapter }}
+          VALTHERA_MASTER_OPTS: ${{ inputs.opts }}
+        run: bun run dist/index.js
+
+      # ---- for node
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        if: inputs.ver != 'bun'
+        with:
+          node-version: ${{ inputs.ver }}
+
+      - name: Install dependencies & build (Node.js)
+        if: inputs.ver != 'bun'
+        run: |
+          npm install
+          npm run build
+
+      - name: Install additional dependencies (Node.js)
+        if: inputs.ver != 'bun'
+        run: npm install ${{ inputs.install }}
+
+      - name: Run benchmark for adapter (Node.js)
+        if: inputs.ver != 'bun'
+        env:
+          VALTHERA_MASTER: ${{ inputs.adapter }}
+          VALTHERA_MASTER_OPTS: ${{ inputs.opts }}
+        run: node dist/index.js
+
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-${{ inputs.adapter }}-${{ inputs.ver }}-${{ inputs.os }}
+          path: result.json
