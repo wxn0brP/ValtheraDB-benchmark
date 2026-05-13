@@ -10,6 +10,9 @@ on:
 jobs:
   commit-results:
     runs-on: ubuntu-latest
+    concurrency:
+      group: results-branch-push
+      cancel-in-progress: false
     steps:
       - name: Checkout results branch
         uses: actions/checkout@v6
