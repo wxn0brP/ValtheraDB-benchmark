@@ -23,7 +23,7 @@ jobs:
 
     uses: ./.github/workflows/run-single.yml
     with:
-      opts: '["/tmp/valthera-bin-test.vdb"]'
+      opts: '["./valthera-bin-test.vdb"]'
       adapter: "bin"
       ver: ${{ matrix.ver }}
       os: ${{ matrix.os }}
