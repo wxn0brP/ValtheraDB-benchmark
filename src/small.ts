@@ -1,9 +1,10 @@
+import { Collection } from "@wxn0brp/db-core/helpers/collection";
 import { generateUsers } from "./generate";
 import { bench, type BenchResult } from "./run";
 
 const COUNT = 10_000;
 
-export async function benchmarkSmall(col: any): Promise<BenchResult[]> {
+export async function benchmarkSmall(col: Collection): Promise<BenchResult[]> {
     const results: BenchResult[] = [];
     const userData = generateUsers(COUNT);
     const ids: string[] = [];
@@ -11,7 +12,7 @@ export async function benchmarkSmall(col: any): Promise<BenchResult[]> {
     results.push(await bench("add-small", async () => {
         for (const u of userData) {
             const doc = await col.add(u);
-            ids.push(doc._id!);
+            ids.push(doc._id);
         }
     }));
 

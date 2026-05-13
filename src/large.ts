@@ -1,17 +1,21 @@
+import { Collection } from "@wxn0brp/db-core/helpers/collection";
 import { generatePosts } from "./generate";
 import { bench, type BenchResult } from "./run";
 
 const COUNT = 200_000;
 
-export async function benchmarkLarge(col: any): Promise<BenchResult[]> {
+export async function benchmarkLarge(col: Collection): Promise<BenchResult[]> {
     const results: BenchResult[] = [];
     const postData = generatePosts(COUNT);
     const ids: string[] = [];
 
+    let i = 0;
     results.push(await bench("add-large", async () => {
         for (const p of postData) {
             const doc = await col.add(p);
-            ids.push(doc._id!);
+            ids.push(doc._id);
+            i++;
+            if (i % 10000 === 0) console.log(`Added ${i} documents`);
         }
     }));
 

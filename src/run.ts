@@ -5,7 +5,7 @@ export interface BenchResult {
     time: number;
 }
 
-export async function bench(name: string, fn: () => Promise<void>): Promise<BenchResult> {
+export async function bench(name: string, fn: () => Promise<any>): Promise<BenchResult> {
     console.log(`  ${name}...`);
     const start = performance.now();
     await fn();
