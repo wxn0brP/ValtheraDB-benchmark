@@ -10,6 +10,8 @@ jobs:
         include:
           - ver: "bun"
             os: "ubuntu-latest"
+          - ver: "24"
+            os: "ubuntu-latest"
 
     uses: ./.github/workflows/run-single.yml
     with:
@@ -17,7 +19,7 @@ jobs:
       adapter: "dir"
       ver: ${{ matrix.ver }}
       os: ${{ matrix.os }}
-      install: ''
+      install: ""
     secrets: inherit
 
   commit-results:
@@ -26,4 +28,3 @@ jobs:
     with:
       adapter: "dir"
     secrets: inherit
-      

@@ -24,8 +24,7 @@ jobs:
     runs-on: ${{ inputs.os }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-
+        uses: actions/checkout@v6
 
       # ---- for bun
       - name: Setup Bun
@@ -75,9 +74,8 @@ jobs:
           VALTHERA_MASTER_OPTS: ${{ inputs.opts }}
         run: node dist/index.js
 
-
       - name: Upload results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v8
         with:
           name: benchmark-${{ inputs.adapter }}-${{ inputs.ver }}-${{ inputs.os }}
           path: result.json
