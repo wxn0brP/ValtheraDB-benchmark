@@ -40,7 +40,7 @@ jobs:
           bun run build
 
       - name: Install additional dependencies (Bun)
-        if: inputs.ver == 'bun'
+        if: inputs.ver == 'bun' && inputs.install
         run: bun add ${{ inputs.install }}
 
       - name: Run benchmark for adapter (Bun)
@@ -64,7 +64,7 @@ jobs:
           npm run build
 
       - name: Install additional dependencies (Node.js)
-        if: inputs.ver != 'bun'
+        if: inputs.ver != 'bun' && inputs.install
         run: npm install ${{ inputs.install }}
 
       - name: Run benchmark for adapter (Node.js)

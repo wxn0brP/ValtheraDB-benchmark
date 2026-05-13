@@ -32,7 +32,7 @@ const results = {
     os: process.platform,
     arch: process.arch,
     node: process?.version,
-    bun: Bun?.version,
+    bun: globalThis.Bun?.version,
     adapter: process.env.VALTHERA_MASTER,
     results: [
         {
