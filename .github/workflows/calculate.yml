@@ -1,0 +1,46 @@
+name: calculate
+
+on:
+  workflow_dispatch:
+
+jobs:
+  calculate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v6
+        with:
+          path: master
+
+      - name: Checkout results
+        uses: actions/checkout@v6
+        with:
+          ref: results
+          path: results
+
+      - name: Checkout result-md
+        uses: actions/checkout@v6
+        with:
+          ref: result-md
+          path: result-md
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Generate report
+        run: |
+          cd results
+          bun ../master/src/calculate.ts
+
+      - name: Commit and push
+        run: |
+          cd result-md
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Update benchmark report"
+          git push origin result-md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
