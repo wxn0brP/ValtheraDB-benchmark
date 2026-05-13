@@ -30,3 +30,5 @@ jobs:
           git add .
           git commit -m "Results ${{ inputs.adapter }}"
           git push origin results
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
