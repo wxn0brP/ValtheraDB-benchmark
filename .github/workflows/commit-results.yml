@@ -6,6 +6,9 @@ on:
       adapter:
         required: true
         type: string
+      GITHUB_TOKEN:
+        required: true
+        type: string
 
 jobs:
   commit-results:
@@ -31,4 +34,4 @@ jobs:
           git commit -m "Results ${{ inputs.adapter }}"
           git push origin results
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
