@@ -19,14 +19,14 @@ async function run<T extends (...args: any[]) => any>(fn: T, ...args: Parameters
 
 const users = db.c("users");
 
-const add = await run(users.add, {
+const add = await run(users.add.bind(users), {
     name: "Jan",
     age: 30,
     email: "[EMAIL_ADDRESS]",
 });
-const find = await run(users.find, {});
-const update = await run(users.updateOne, { _id: find.result[0]._id }, { age: 31 });
-const remove = await run(users.removeOne, { _id: find.result[0]._id });
+const find = await run(users.find.bind(users), {});
+const update = await run(users.updateOne.bind(users), { _id: find.result[0]._id }, { age: 31 });
+const remove = await run(users.removeOne.bind(users), { _id: find.result[0]._id });
 
 const results = {
     os: process.platform,
