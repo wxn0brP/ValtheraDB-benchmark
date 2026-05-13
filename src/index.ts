@@ -1,57 +1,27 @@
 import { writeFileSync } from "fs";
 import { db } from "./db";
-import { performance } from "perf_hooks";
+import { benchmarkLarge } from "./large";
+import { type BenchResult } from "./run";
+import { benchmarkSmall } from "./small";
 
-interface Result<T extends (...args: any[]) => any> {
-    time: number;
-    result: Awaited<ReturnType<T>>;
-}
+const allResults: BenchResult[] = [];
 
-async function run<T extends (...args: any[]) => any>(fn: T, ...args: Parameters<T>): Promise<Result<T>> {
-    const start = performance.now();
-    const result = await fn(...args);
-    const end = performance.now();
-    return {
-        time: end - start,
-        result,
-    };
-}
+console.log("small collection (users, 10k)");
+const smallResults = await benchmarkSmall(db.c("users"));
+allResults.push(...smallResults);
 
-const users = db.c("users");
-
-const add = await run(users.add.bind(users), {
-    name: "Jan",
-    age: 30,
-    email: "[EMAIL_ADDRESS]",
-});
-const find = await run(users.find.bind(users), {});
-const update = await run(users.updateOne.bind(users), { _id: find.result[0]._id }, { age: 31 });
-const remove = await run(users.removeOne.bind(users), { _id: find.result[0]._id });
+console.log("large collection (posts, 200k)");
+const largeResults = await benchmarkLarge(db.c("posts"));
+allResults.push(...largeResults);
 
 const results = {
+    time: new Date().toISOString(),
     os: process.platform,
     arch: process.arch,
     node: process?.version,
-    bun: globalThis.Bun?.version,
+    bun: globalThis.Bun?.version || "N/A",
     adapter: process.env.VALTHERA_MASTER,
-    results: [
-        {
-            name: "add-small",
-            time: add.time,
-        },
-        {
-            name: "find-small",
-            time: find.time,
-        },
-        {
-            name: "update-small",
-            time: update.time,
-        },
-        {
-            name: "remove-small",
-            time: remove.time,
-        },
-    ],
-}
+    results: allResults,
+};
 
 writeFileSync("result.json", JSON.stringify(results, null, 2));
