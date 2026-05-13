@@ -33,15 +33,17 @@ jobs:
         with:
           bun-version: latest
 
-      - name: Install dependencies & build (Bun)
+      - name: Install dependencies (Bun)
         if: inputs.ver == 'bun'
-        run: |
-          bun install
-          bun run build
+        run: bun install
 
       - name: Install additional dependencies (Bun)
         if: inputs.ver == 'bun' && inputs.install
         run: bun add ${{ inputs.install }}
+
+      - name: Build (Bun)
+        if: inputs.ver == 'bun'
+        run: bun run build
 
       - name: Run benchmark for adapter (Bun)
         if: inputs.ver == 'bun'
@@ -57,15 +59,17 @@ jobs:
         with:
           node-version: ${{ inputs.ver }}
 
-      - name: Install dependencies & build (Node.js)
+      - name: Install dependencies (Node.js)
         if: inputs.ver != 'bun'
-        run: |
-          npm install
-          npm run build
+        run: npm install
 
       - name: Install additional dependencies (Node.js)
         if: inputs.ver != 'bun' && inputs.install
         run: npm install ${{ inputs.install }}
+
+      - name: Build (Node.js)
+        if: inputs.ver != 'bun'
+        run: npm run build
 
       - name: Run benchmark for adapter (Node.js)
         if: inputs.ver != 'bun'
