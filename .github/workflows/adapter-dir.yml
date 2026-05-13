@@ -27,5 +27,4 @@ jobs:
     uses: ./.github/workflows/commit-results.yml
     with:
       adapter: "dir"
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     secrets: inherit
