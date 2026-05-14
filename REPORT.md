@@ -1,7 +1,12 @@
 # Benchmark Report
 
-Generated: 2026-05-14T19:06:11.618Z  
-Total configs: 13
+Generated: 2026-05-14T22:11:30.394Z
+Total results: 13
+
+## Notes
+
+- All timings are computed as the median of 10 benchmark runs per operation.
+- Benchmarks are executed on GitHub Actions runners using default hosted virtual machines (no dedicated or self-hosted hardware).
 
 ## dir-c Adapter
 
@@ -13,13 +18,13 @@ Total configs: 13
 
 | Runtime / OS | `add` | `findOne` | `find-search` | `find-paginated` | `updateOne` | `update-search` | `removeOne` | `remove-search` |
 |---|---|---|---|---|---|---|---|---|
-|  bun / ubuntu-latest |  2.43s |  1.0ms |  28.7ms |  29.1ms |  824.2ms |  824.8ms |  797.0ms |  692.1ms  |
+|  bun / ubuntu-latest |  2.01s |  1.1ms |  26.5ms |  26.4ms |  731.8ms |  746.2ms |  739.9ms |  637.7ms  |
 
 ### Large Collection (posts, 200k)
 
 | Runtime / OS | `add` | `findOne` | `find-search` | `find-paginated` | `updateOne` | `update-search` | `removeOne` | `remove-search` |
 |---|---|---|---|---|---|---|---|---|
-|  bun / ubuntu-latest |  51.51s |  40.7ms |  383.1ms |  460.2ms |  1.72s |  15.73s |  1.69s |  15.68s  |
+|  bun / ubuntu-latest |  43.41s |  105.3ms |  345.7ms |  424.8ms |  1.57s |  14.26s |  1.55s |  14.26s  |
 
 ## dir Adapter
 
@@ -36,23 +41,23 @@ Total configs: 13
 
 | Runtime / OS | `add` | `findOne` | `find-search` | `find-paginated` | `updateOne` | `update-search` | `removeOne` | `remove-search` |
 |---|---|---|---|---|---|---|---|---|
-|  bun / ubuntu-latest |  2.41s |  5.2ms |  68.3ms |  19.0ms |  792.0ms |  829.5ms |  866.3ms |  759.6ms  |
-|  node 24 / macos-latest |  1.73s |  1.7ms |  37.8ms |  8.8ms |  37.2ms |  59.9ms |  46.4ms |  29.5ms  |
-|  node 24 / ubuntu-latest |  2.66s |  3.7ms |  85.7ms |  31.1ms |  60.0ms |  99.9ms |  68.2ms |  48.1ms  |
-|  node 24 / windows-latest |  4.85s |  3.7ms |  62.0ms |  28.9ms |  70.9ms |  92.3ms |  67.3ms |  56.2ms  |
-|  node 22 / ubuntu-latest |  3.61s |  3.1ms |  69.8ms |  24.0ms |  56.3ms |  98.5ms |  66.1ms |  51.8ms  |
-|  node 20 / ubuntu-latest |  3.64s |  3.4ms |  72.9ms |  25.4ms |  64.0ms |  103.0ms |  69.2ms |  57.4ms  |
+|  bun / ubuntu-latest |  1.96s |  5.0ms |  69.2ms |  17.0ms |  703.3ms |  725.4ms |  706.3ms |  614.4ms  |
+|  node 24 / macos-latest |  2.49s |  1.9ms |  37.9ms |  9.6ms |  37.7ms |  64.7ms |  42.0ms |  30.9ms  |
+|  node 24 / ubuntu-latest |  3.23s |  3.0ms |  59.1ms |  23.3ms |  53.6ms |  89.2ms |  59.2ms |  42.9ms  |
+|  node 24 / windows-latest |  6.67s |  3.7ms |  64.1ms |  27.9ms |  79.2ms |  102.5ms |  73.0ms |  58.1ms  |
+|  node 22 / ubuntu-latest |  2.17s |  2.4ms |  53.5ms |  17.3ms |  45.0ms |  73.6ms |  50.2ms |  41.3ms  |
+|  node 20 / ubuntu-latest |  2.14s |  2.6ms |  55.3ms |  18.4ms |  49.9ms |  75.9ms |  53.0ms |  42.4ms  |
 
 ### Large Collection (posts, 200k)
 
 | Runtime / OS | `add` | `findOne` | `find-search` | `find-paginated` | `updateOne` | `update-search` | `removeOne` | `remove-search` |
 |---|---|---|---|---|---|---|---|---|
-|  bun / ubuntu-latest |  51.55s |  1.7ms |  596.3ms |  25.7ms |  1.72s |  15.95s |  1.74s |  15.68s  |
-|  node 24 / macos-latest |  43.07s |  1.1ms |  285.1ms |  12.0ms |  79.4ms |  405.4ms |  80.6ms |  512.5ms  |
-|  node 24 / ubuntu-latest |  52.58s |  1.1ms |  552.9ms |  23.8ms |  117.9ms |  704.2ms |  117.9ms |  666.9ms  |
-|  node 24 / windows-latest |  83.96s |  1.1ms |  584.0ms |  30.4ms |  165.1ms |  954.2ms |  145.5ms |  956.7ms  |
-|  node 22 / ubuntu-latest |  68.12s |  1.0ms |  565.5ms |  27.3ms |  160.3ms |  705.6ms |  128.4ms |  679.4ms  |
-|  node 20 / ubuntu-latest |  71.96s |  1.0ms |  660.8ms |  30.3ms |  137.5ms |  782.5ms |  135.7ms |  762.9ms  |
+|  bun / ubuntu-latest |  42.51s |  1.6ms |  569.7ms |  24.0ms |  1.49s |  13.90s |  1.52s |  13.83s  |
+|  node 24 / macos-latest |  50.93s |  1.8ms |  304.2ms |  13.1ms |  79.5ms |  435.3ms |  81.3ms |  431.8ms  |
+|  node 24 / ubuntu-latest |  62.87s |  1.0ms |  534.8ms |  22.8ms |  117.4ms |  659.4ms |  113.0ms |  622.1ms  |
+|  node 24 / windows-latest |  125.56s |  1.4ms |  612.8ms |  32.6ms |  196.0ms |  1.28s |  177.5ms |  1.20s  |
+|  node 22 / ubuntu-latest |  40.06s |  1.0ms |  459.3ms |  21.3ms |  111.6ms |  598.8ms |  98.7ms |  565.8ms  |
+|  node 20 / ubuntu-latest |  41.53s |  1.0ms |  511.1ms |  23.8ms |  106.5ms |  631.1ms |  101.6ms |  600.5ms  |
 
 ## memory Adapter
 
@@ -69,23 +74,23 @@ Total configs: 13
 
 | Runtime / OS | `add` | `findOne` | `find-search` | `find-paginated` | `updateOne` | `update-search` | `removeOne` | `remove-search` |
 |---|---|---|---|---|---|---|---|---|
-|  bun / ubuntu-latest |  129.9ms |  1.0ms |  57.7ms |  1.7ms |  20.6ms |  50.2ms |  40.2ms |  26.8ms  |
-|  node 24 / macos-latest |  118.2ms |  1.0ms |  30.3ms |  3.1ms |  20.1ms |  41.0ms |  26.4ms |  12.9ms  |
-|  node 24 / ubuntu-latest |  117.9ms |  1.0ms |  53.0ms |  2.2ms |  34.0ms |  62.4ms |  53.6ms |  21.8ms  |
-|  node 24 / windows-latest |  124.7ms |  1.0ms |  41.3ms |  1.0ms |  23.0ms |  65.6ms |  50.9ms |  23.7ms  |
-|  node 22 / ubuntu-latest |  136.0ms |  1.0ms |  48.7ms |  1.3ms |  26.4ms |  66.4ms |  51.4ms |  27.9ms  |
-|  node 20 / ubuntu-latest |  133.2ms |  1.0ms |  61.3ms |  1.0ms |  28.7ms |  81.7ms |  46.4ms |  29.0ms  |
+|  bun / ubuntu-latest |  126.2ms |  1.0ms |  48.8ms |  1.6ms |  18.9ms |  49.4ms |  34.1ms |  25.7ms  |
+|  node 24 / macos-latest |  122.0ms |  1.0ms |  39.7ms |  1.0ms |  21.5ms |  53.5ms |  41.3ms |  15.6ms  |
+|  node 24 / ubuntu-latest |  125.3ms |  1.0ms |  39.9ms |  1.0ms |  22.1ms |  60.5ms |  51.3ms |  26.2ms  |
+|  node 24 / windows-latest |  125.5ms |  1.0ms |  38.8ms |  1.1ms |  21.9ms |  57.7ms |  43.1ms |  24.6ms  |
+|  node 22 / ubuntu-latest |  131.1ms |  1.0ms |  41.8ms |  1.0ms |  22.4ms |  60.2ms |  48.0ms |  28.9ms  |
+|  node 20 / ubuntu-latest |  131.0ms |  1.0ms |  43.2ms |  1.0ms |  21.1ms |  71.1ms |  40.5ms |  25.4ms  |
 
 ### Large Collection (posts, 200k)
 
 | Runtime / OS | `add` | `findOne` | `find-search` | `find-paginated` | `updateOne` | `update-search` | `removeOne` | `remove-search` |
 |---|---|---|---|---|---|---|---|---|
-|  bun / ubuntu-latest |  2.55s |  1.0ms |  409.8ms |  9.9ms |  403.5ms |  377.5ms |  764.9ms |  341.0ms  |
-|  node 24 / macos-latest |  2.52s |  1.0ms |  236.9ms |  14.1ms |  362.8ms |  219.8ms |  538.7ms |  174.6ms  |
-|  node 24 / ubuntu-latest |  2.48s |  1.0ms |  266.5ms |  11.6ms |  322.0ms |  276.3ms |  638.8ms |  247.9ms  |
-|  node 24 / windows-latest |  2.44s |  1.0ms |  325.1ms |  11.2ms |  366.4ms |  341.2ms |  734.0ms |  310.5ms  |
-|  node 22 / ubuntu-latest |  2.46s |  1.0ms |  355.3ms |  12.3ms |  403.3ms |  358.1ms |  736.6ms |  332.8ms  |
-|  node 20 / ubuntu-latest |  2.40s |  1.0ms |  313.7ms |  10.7ms |  366.5ms |  312.1ms |  723.0ms |  295.6ms  |
+|  bun / ubuntu-latest |  2.54s |  1.0ms |  414.6ms |  7.4ms |  398.9ms |  380.6ms |  751.1ms |  347.4ms  |
+|  node 24 / macos-latest |  2.55s |  1.0ms |  200.9ms |  7.3ms |  336.4ms |  230.6ms |  656.7ms |  206.7ms  |
+|  node 24 / ubuntu-latest |  2.44s |  1.0ms |  327.2ms |  10.4ms |  358.0ms |  332.8ms |  717.8ms |  310.5ms  |
+|  node 24 / windows-latest |  2.46s |  1.0ms |  292.5ms |  9.8ms |  354.1ms |  292.2ms |  701.2ms |  273.4ms  |
+|  node 22 / ubuntu-latest |  2.43s |  1.0ms |  277.4ms |  12.0ms |  334.1ms |  276.6ms |  666.8ms |  258.0ms  |
+|  node 20 / ubuntu-latest |  2.42s |  1.0ms |  290.2ms |  12.0ms |  344.5ms |  300.9ms |  683.7ms |  278.0ms  |
 
 ## Fastest per Operation
 
@@ -93,127 +98,127 @@ Total configs: 13
 
 | System | 🥇 | 🥈 | 🥉 |
 |---|---|---|---|
-|  macos-latest | 🥇 dir/24 (43.07s) | - | -  |
-|  ubuntu-latest | 🥇 dir-c/bun, dir/bun (51.53s) | 🥈 dir/24 (52.58s) | 🥉 dir/22 (68.12s)  |
-|  windows-latest | 🥇 dir/24 (83.96s) | - | -  |
+|  macos-latest | 🥇 dir/24 (50.93s) | - | -  |
+|  ubuntu-latest | 🥇 dir/22 (40.06s) | 🥈 dir/20 (41.53s) | 🥉 dir/bun (42.51s)  |
+|  windows-latest | 🥇 dir/24 (125.56s) | - | -  |
 
 ### **`add-small`**:
 
 | System | 🥇 | 🥈 | 🥉 |
 |---|---|---|---|
-|  macos-latest | 🥇 dir/24 (1.73s) | - | -  |
-|  ubuntu-latest | 🥇 dir/bun, dir-c/bun (2.42s) | 🥈 dir/24 (2.66s) | 🥉 dir/22, dir/20 (3.62s)  |
-|  windows-latest | 🥇 dir/24 (4.85s) | - | -  |
+|  macos-latest | 🥇 dir/24 (2.49s) | - | -  |
+|  ubuntu-latest | 🥇 dir/bun (1.96s) | 🥈 dir-c/bun (2.01s) | 🥉 dir/20 (2.14s)  |
+|  windows-latest | 🥇 dir/24 (6.67s) | - | -  |
 
 ### **`find-paginated-large`**:
 
 | System | 🥇 | 🥈 | 🥉 |
 |---|---|---|---|
-|  macos-latest | 🥇 dir/24 (12.0ms) | - | -  |
-|  ubuntu-latest | 🥇 dir/24 (23.8ms) | 🥈 dir/bun (25.7ms) | 🥉 dir/22 (27.3ms)  |
-|  windows-latest | 🥇 dir/24 (30.4ms) | - | -  |
+|  macos-latest | 🥇 dir/24 (13.1ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/22 (21.3ms) | 🥈 dir/24 (22.8ms) | 🥉 dir/20, dir/bun (23.9ms)  |
+|  windows-latest | 🥇 dir/24 (32.6ms) | - | -  |
 
 ### **`find-paginated-small`**:
 
 | System | 🥇 | 🥈 | 🥉 |
 |---|---|---|---|
-|  macos-latest | 🥇 dir/24 (8.8ms) | - | -  |
-|  ubuntu-latest | 🥇 dir/bun (19.0ms) | 🥈 dir/22 (24.0ms) | 🥉 dir/20 (25.4ms)  |
-|  windows-latest | 🥇 dir/24 (28.9ms) | - | -  |
+|  macos-latest | 🥇 dir/24 (9.6ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/bun (17.0ms) | 🥈 dir/22 (17.3ms) | 🥉 dir/20 (18.4ms)  |
+|  windows-latest | 🥇 dir/24 (27.9ms) | - | -  |
 
 ### **`find-search-large`**:
 
 | System | 🥇 | 🥈 | 🥉 |
 |---|---|---|---|
-|  macos-latest | 🥇 dir/24 (285.1ms) | - | -  |
-|  ubuntu-latest | 🥇 dir-c/bun (383.1ms) | 🥈 dir/24 (552.9ms) | 🥉 dir/22 (565.5ms)  |
-|  windows-latest | 🥇 dir/24 (584.0ms) | - | -  |
+|  macos-latest | 🥇 dir/24 (304.2ms) | - | -  |
+|  ubuntu-latest | 🥇 dir-c/bun (345.7ms) | 🥈 dir/22 (459.3ms) | 🥉 dir/20 (511.1ms)  |
+|  windows-latest | 🥇 dir/24 (612.8ms) | - | -  |
 
 ### **`find-search-small`**:
 
 | System | 🥇 | 🥈 | 🥉 |
 |---|---|---|---|
-|  macos-latest | 🥇 dir/24 (37.8ms) | - | -  |
-|  ubuntu-latest | 🥇 dir-c/bun (28.7ms) | 🥈 dir/bun (68.3ms) | 🥉 dir/22 (69.8ms)  |
-|  windows-latest | 🥇 dir/24 (62.0ms) | - | -  |
+|  macos-latest | 🥇 dir/24 (37.9ms) | - | -  |
+|  ubuntu-latest | 🥇 dir-c/bun (26.5ms) | 🥈 dir/22 (53.5ms) | 🥉 dir/20 (55.3ms)  |
+|  windows-latest | 🥇 dir/24 (64.1ms) | - | -  |
 
 ### **`findOne-large`**:
 
 | System | 🥇 | 🥈 | 🥉 |
 |---|---|---|---|
-|  macos-latest | 🥇 dir/24 (1.1ms) | - | -  |
-|  ubuntu-latest | 🥇 dir/22, dir/20, dir/24 (1.0ms) | 🥈 dir/bun (1.7ms) | 🥉 dir-c/bun (40.7ms)  |
-|  windows-latest | 🥇 dir/24 (1.1ms) | - | -  |
+|  macos-latest | 🥇 dir/24 (1.8ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/20 (1.0ms) | 🥈 dir/22 (1.0ms) | 🥉 dir/24 (1.0ms)  |
+|  windows-latest | 🥇 dir/24 (1.4ms) | - | -  |
 
 ### **`findOne-small`**:
 
 | System | 🥇 | 🥈 | 🥉 |
 |---|---|---|---|
-|  macos-latest | 🥇 dir/24 (1.7ms) | - | -  |
-|  ubuntu-latest | 🥇 dir-c/bun (1.0ms) | 🥈 dir/22 (3.1ms) | 🥉 dir/20 (3.4ms)  |
+|  macos-latest | 🥇 dir/24 (1.9ms) | - | -  |
+|  ubuntu-latest | 🥇 dir-c/bun (1.1ms) | 🥈 dir/22 (2.4ms) | 🥉 dir/20 (2.6ms)  |
 |  windows-latest | 🥇 dir/24 (3.7ms) | - | -  |
 
 ### **`remove-search-large`**:
 
 | System | 🥇 | 🥈 | 🥉 |
 |---|---|---|---|
-|  macos-latest | 🥇 dir/24 (512.5ms) | - | -  |
-|  ubuntu-latest | 🥇 dir/24 (666.9ms) | 🥈 dir/22 (679.4ms) | 🥉 dir/20 (762.9ms)  |
-|  windows-latest | 🥇 dir/24 (956.7ms) | - | -  |
+|  macos-latest | 🥇 dir/24 (431.8ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/22 (565.8ms) | 🥈 dir/20 (600.5ms) | 🥉 dir/24 (622.1ms)  |
+|  windows-latest | 🥇 dir/24 (1.20s) | - | -  |
 
 ### **`remove-search-small`**:
 
 | System | 🥇 | 🥈 | 🥉 |
 |---|---|---|---|
-|  macos-latest | 🥇 dir/24 (29.5ms) | - | -  |
-|  ubuntu-latest | 🥇 dir/24 (48.1ms) | 🥈 dir/22 (51.8ms) | 🥉 dir/20 (57.4ms)  |
-|  windows-latest | 🥇 dir/24 (56.2ms) | - | -  |
+|  macos-latest | 🥇 dir/24 (30.9ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/22 (41.3ms) | 🥈 dir/20 (42.4ms) | 🥉 dir/24 (42.9ms)  |
+|  windows-latest | 🥇 dir/24 (58.1ms) | - | -  |
 
 ### **`removeOne-large`**:
 
 | System | 🥇 | 🥈 | 🥉 |
 |---|---|---|---|
-|  macos-latest | 🥇 dir/24 (80.6ms) | - | -  |
-|  ubuntu-latest | 🥇 dir/24 (117.9ms) | 🥈 dir/22 (128.4ms) | 🥉 dir/20 (135.7ms)  |
-|  windows-latest | 🥇 dir/24 (145.5ms) | - | -  |
+|  macos-latest | 🥇 dir/24 (81.3ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/22 (98.7ms) | 🥈 dir/20 (101.6ms) | 🥉 dir/24 (113.0ms)  |
+|  windows-latest | 🥇 dir/24 (177.5ms) | - | -  |
 
 ### **`removeOne-small`**:
 
 | System | 🥇 | 🥈 | 🥉 |
 |---|---|---|---|
-|  macos-latest | 🥇 dir/24 (46.4ms) | - | -  |
-|  ubuntu-latest | 🥇 dir/22 (66.1ms) | 🥈 dir/24 (68.2ms) | 🥉 dir/20 (69.2ms)  |
-|  windows-latest | 🥇 dir/24 (67.3ms) | - | -  |
+|  macos-latest | 🥇 dir/24 (42.0ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/22 (50.2ms) | 🥈 dir/20 (53.0ms) | 🥉 dir/24 (59.2ms)  |
+|  windows-latest | 🥇 dir/24 (73.0ms) | - | -  |
 
 ### **`update-search-large`**:
 
 | System | 🥇 | 🥈 | 🥉 |
 |---|---|---|---|
-|  macos-latest | 🥇 dir/24 (405.4ms) | - | -  |
-|  ubuntu-latest | 🥇 dir/24, dir/22 (704.9ms) | 🥈 dir/20 (782.5ms) | 🥉 dir-c/bun (15.73s)  |
-|  windows-latest | 🥇 dir/24 (954.2ms) | - | -  |
+|  macos-latest | 🥇 dir/24 (435.3ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/22 (598.8ms) | 🥈 dir/20 (631.1ms) | 🥉 dir/24 (659.4ms)  |
+|  windows-latest | 🥇 dir/24 (1.28s) | - | -  |
 
 ### **`update-search-small`**:
 
 | System | 🥇 | 🥈 | 🥉 |
 |---|---|---|---|
-|  macos-latest | 🥇 dir/24 (59.9ms) | - | -  |
-|  ubuntu-latest | 🥇 dir/22 (98.5ms) | 🥈 dir/24 (99.9ms) | 🥉 dir/20 (103.0ms)  |
-|  windows-latest | 🥇 dir/24 (92.3ms) | - | -  |
+|  macos-latest | 🥇 dir/24 (64.7ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/22 (73.6ms) | 🥈 dir/20 (75.9ms) | 🥉 dir/24 (89.2ms)  |
+|  windows-latest | 🥇 dir/24 (102.5ms) | - | -  |
 
 ### **`updateOne-large`**:
 
 | System | 🥇 | 🥈 | 🥉 |
 |---|---|---|---|
-|  macos-latest | 🥇 dir/24 (79.4ms) | - | -  |
-|  ubuntu-latest | 🥇 dir/24 (117.9ms) | 🥈 dir/20 (137.5ms) | 🥉 dir/22 (160.3ms)  |
-|  windows-latest | 🥇 dir/24 (165.1ms) | - | -  |
+|  macos-latest | 🥇 dir/24 (79.5ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/20 (106.5ms) | 🥈 dir/22 (111.6ms) | 🥉 dir/24 (117.4ms)  |
+|  windows-latest | 🥇 dir/24 (196.0ms) | - | -  |
 
 ### **`updateOne-small`**:
 
 | System | 🥇 | 🥈 | 🥉 |
 |---|---|---|---|
-|  macos-latest | 🥇 dir/24 (37.2ms) | - | -  |
-|  ubuntu-latest | 🥇 dir/22 (56.3ms) | 🥈 dir/24 (60.0ms) | 🥉 dir/20 (64.0ms)  |
-|  windows-latest | 🥇 dir/24 (70.9ms) | - | -  |
+|  macos-latest | 🥇 dir/24 (37.7ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/22 (45.0ms) | 🥈 dir/20 (49.9ms) | 🥉 dir/24 (53.6ms)  |
+|  windows-latest | 🥇 dir/24 (79.2ms) | - | -  |
 
