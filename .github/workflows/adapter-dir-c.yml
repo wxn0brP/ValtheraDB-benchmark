@@ -20,7 +20,7 @@ jobs:
       install: ""
       setup: |
         sudo apt update
-        sudo apt install -y cmake make
+        sudo apt install -y cmake make pkg-config libjansson-dev
         mkdir -p node_modules/@wxn0brp
         cd node_modules/@wxn0brp
         git clone https://github.com/wxn0brP/ValtheraDB-c-engine.git db-dir-c
