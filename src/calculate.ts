@@ -15,9 +15,15 @@ interface ResultFile {
     results: BenchResult[];
 }
 
-function parseEntry(dir: string): { adapter: string; ver: string; os: string } {
-    const p = dir.split("-");
-    return { adapter: p[0], ver: p[1], os: p.slice(2).join("-") };
+interface ParsedEntry {
+    adapter: string;
+    ver: string;
+    os: string;
+}
+
+function parseEntry(dir: string): ParsedEntry {
+    const p = dir.split("__");
+    return { adapter: p[0], ver: p[1], os: p[2] };
 }
 
 function fmt(ms: number): string {

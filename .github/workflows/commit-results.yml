@@ -6,6 +6,9 @@ on:
       adapter:
         required: true
         type: string
+      one:
+        required: false
+        type: string
 
 jobs:
   commit-results:
@@ -28,6 +31,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          if [ -f results.json ]; then
+            mv results.json ${{ inputs.one }}/result.json
+          fi
+          
           git add .
           git commit -m "Results ${{ inputs.adapter }}"
           git push origin results

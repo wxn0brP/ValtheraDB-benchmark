@@ -92,5 +92,5 @@ jobs:
       - name: Upload results
         uses: actions/upload-artifact@v7
         with:
-          name: ${{ inputs.adapter }}-${{ inputs.ver }}-${{ inputs.os }}
+          name: ${{ inputs.adapter }}__${{ inputs.ver }}__${{ inputs.os }}
           path: result.json

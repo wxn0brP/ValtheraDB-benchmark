@@ -35,4 +35,5 @@ jobs:
     uses: ./.github/workflows/commit-results.yml
     with:
       adapter: "dir-c"
+      one: "dir-c__bun__ubuntu-latest"
     secrets: inherit
