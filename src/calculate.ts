@@ -80,9 +80,17 @@ for (const d of dirs.sort()) {
     entries.push({ dir: d, info: parseEntry(d), data });
 }
 
-let md = "# Benchmark Report\n\n";
-md += "Generated: " + new Date().toISOString() + "  \n";
-md += "Total configs: " + entries.length + "\n\n";
+let md = `# Benchmark Report
+
+Generated: ${new Date().toISOString()}
+Total results: ${entries.length}
+
+## Notes
+
+- All timings are computed as the median of 10 benchmark runs per operation.
+- Benchmarks are executed on GitHub Actions runners using default hosted virtual machines (no dedicated or self-hosted hardware).
+
+`;
 
 const adapters = [...new Set(entries.map(e => e.info.adapter))];
 
