@@ -83,6 +83,7 @@ for (const d of dirs.sort()) {
 let md = `# Benchmark Report
 
 Generated: ${new Date().toISOString()}
+
 Total results: ${entries.length}
 
 ## Notes
