@@ -1,0 +1,74 @@
+{
+  "time": "2026-05-14T19:04:27.082Z",
+  "os": "darwin",
+  "arch": "arm64",
+  "node": "v24.15.0",
+  "bun": "N/A",
+  "adapter": "memory",
+  "results": [
+    {
+      "name": "add-small",
+      "time": 118.178958
+    },
+    {
+      "name": "findOne-small",
+      "time": 0.5849589999999978
+    },
+    {
+      "name": "find-search-small",
+      "time": 30.294707999999986
+    },
+    {
+      "name": "find-paginated-small",
+      "time": 3.1415000000000077
+    },
+    {
+      "name": "updateOne-small",
+      "time": 20.145207999999997
+    },
+    {
+      "name": "update-search-small",
+      "time": 40.973084
+    },
+    {
+      "name": "removeOne-small",
+      "time": 26.407207999999997
+    },
+    {
+      "name": "remove-search-small",
+      "time": 12.908375000000035
+    },
+    {
+      "name": "add-large",
+      "time": 2516.4168329999998
+    },
+    {
+      "name": "findOne-large",
+      "time": 0.4657910000000811
+    },
+    {
+      "name": "find-search-large",
+      "time": 236.9357500000001
+    },
+    {
+      "name": "find-paginated-large",
+      "time": 14.07400000000007
+    },
+    {
+      "name": "updateOne-large",
+      "time": 362.80229099999997
+    },
+    {
+      "name": "update-search-large",
+      "time": 219.84862500000008
+    },
+    {
+      "name": "removeOne-large",
+      "time": 538.6823749999999
+    },
+    {
+      "name": "remove-search-large",
+      "time": 174.62824999999975
+    }
+  ]
+}
