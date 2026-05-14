@@ -29,7 +29,7 @@ function parseEntry(dir: string): ParsedEntry {
 function fmt(ms: number): string {
     if (ms >= 1000) return (ms / 1000).toFixed(2) + "s";
     if (ms >= 1) return ms.toFixed(1) + "ms";
-    return (ms * 1000).toFixed(0) + "\u00b5s";
+    return "1.0ms";
 }
 
 function shortOp(name: string): string {
@@ -111,26 +111,59 @@ for (const adapter of adapters) {
         md += "\n";
     }
 }
+function threshold(ms: number): number {
+    return ms < 10 ? 0.05 : 0.01;
+}
 
-function formatEnv(dir: string): string {
-    const p = parseEntry(dir);
-    const runtime = p.ver === "bun" ? "bun latest" : `node ${p.ver}`;
-    return `Storage ${p.adapter}, ${runtime}, ${p.os.replace("-", " ")}`;
+function groupByThreshold(sorted: Array<{ dir: string; time: number }>): Array<Array<{ dir: string; time: number }>> {
+    const groups: Array<Array<{ dir: string; time: number }>> = [];
+    let cur = [sorted[0]];
+    for (let i = 1; i < sorted.length; i++) {
+        const prev = cur[cur.length - 1];
+        const t = threshold(prev.time);
+        if ((sorted[i].time - prev.time) / prev.time <= t) {
+            cur.push(sorted[i]);
+        } else {
+            groups.push(cur);
+            cur = [sorted[i]];
+        }
+    }
+    groups.push(cur);
+    return groups;
+}
+
+function placeCell(g: Array<{ dir: string; time: number }>): string {
+    const avg = g.reduce((s, x) => s + x.time, 0) / g.length;
+    const names = g.map(x => parseEntry(x.dir).adapter + "/" + parseEntry(x.dir).ver).join(", ");
+    return names + " (" + fmt(avg) + ")";
 }
 
 const allOps = [...new Set(entries.flatMap(e => e.data.results.map(r => r.name)))].sort();
 md += "## Fastest per Operation\n\n";
 for (const op of allOps) {
-    const sorted = entries
+    const withTime = entries
         .map(e => ({ dir: e.dir, time: e.data.results.find(r => r.name === op)?.time }))
-        .filter((x): x is { dir: string; time: number } => x.time !== undefined)
-        .sort((a, b) => a.time - b.time);
+        .filter((x): x is { dir: string; time: number } => x.time !== undefined);
 
-    if (!sorted.length) continue;
-    const top = sorted.slice(0, 3);
-    const medals = ["🥇", "🥈", "🥉"];
-    const line = top.map((s, i) => "   + " + medals[i] + " `" + formatEnv(s.dir) + "` (" + fmt(s.time) + ")").join("\n");
-    md += "- **`" + op + "`**:\n" + line + "\n\n";
+    if (!withTime.length) continue;
+
+    const osSet = [...new Set(withTime.map(x => parseEntry(x.dir).os))].sort();
+
+    md += "### **`" + op + "`**:\n\n";
+    md += "| System | 🥇 | 🥈 | 🥉 |\n";
+    md += "|---|---|---|---|\n";
+
+    for (const os of osSet) {
+        const sorted = withTime.filter(x => parseEntry(x.dir).os === os).sort((a, b) => a.time - b.time);
+        const groups = groupByThreshold(sorted);
+        const medals = ["🥇", "🥈", "🥉"];
+        const cells = [" " + os + " "];
+        for (let i = 0; i < 3; i++) {
+            cells.push(i < groups.length ? " " + medals[i] + " " + placeCell(groups[i]) + " " : " - ");
+        }
+        md += "| " + cells.join("|") + " |\n";
+    }
+    md += "\n";
 }
 
 writeFileSync("REPORT.md", md);
