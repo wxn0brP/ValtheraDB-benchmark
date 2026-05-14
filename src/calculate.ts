@@ -138,10 +138,15 @@ function placeCell(g: Array<{ dir: string; time: number }>): string {
     return names + " (" + fmt(avg) + ")";
 }
 
-const allOps = [...new Set(entries.flatMap(e => e.data.results.map(r => r.name)))].sort();
+const notRanked = [
+    "memory"
+];
+
+const rankingEntries = entries.filter(e => !notRanked.includes(e.info.adapter));
+const allOps = [...new Set(rankingEntries.flatMap(e => e.data.results.map(r => r.name)))].sort();
 md += "## Fastest per Operation\n\n";
 for (const op of allOps) {
-    const withTime = entries
+    const withTime = rankingEntries
         .map(e => ({ dir: e.dir, time: e.data.results.find(r => r.name === op)?.time }))
         .filter((x): x is { dir: string; time: number } => x.time !== undefined);
 

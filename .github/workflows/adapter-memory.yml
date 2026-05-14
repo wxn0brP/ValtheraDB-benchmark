@@ -1,0 +1,39 @@
+name: adapter-memory
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-benchmark:
+    strategy:
+      matrix:
+        include:
+          - ver: "bun"
+            os: "ubuntu-latest"
+          - ver: "24"
+            os: "ubuntu-latest"
+          - ver: "22"
+            os: "ubuntu-latest"
+          - ver: "20"
+            os: "ubuntu-latest"
+          - ver: "24"
+            os: "windows-latest"
+          - ver: "24"
+            os: "macos-latest"
+
+    uses: ./.github/workflows/run-single.yml
+    with:
+      opts: '[]'
+      adapter: "memory"
+      ver: ${{ matrix.ver }}
+      os: ${{ matrix.os }}
+      install: ""
+      setup: ""
+    secrets: inherit
+
+  commit-results:
+    needs: run-benchmark
+    uses: ./.github/workflows/commit-results.yml
+    with:
+      adapter: "memory"
+    secrets: inherit
