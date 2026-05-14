@@ -31,7 +31,7 @@ jobs:
 
       # ---- for bun
       - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
+        uses: oven-sh/setup-bun@v2
         if: inputs.ver == 'bun'
         with:
           bun-version: latest
