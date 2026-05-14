@@ -1,6 +1,6 @@
 # Benchmark Report
 
-Generated: 2026-05-14T18:13:20.236Z  
+Generated: 2026-05-14T18:36:57.789Z  
 Total configs: 7
 
 ## dir-c Adapter
@@ -13,7 +13,7 @@ Total configs: 7
 
 | Runtime / OS | `add` | `findOne` | `find-search` | `find-paginated` | `updateOne` | `update-search` | `removeOne` | `remove-search` |
 |---|---|---|---|---|---|---|---|---|
-|  bun / ubuntu-latest |  2.43s |  965µs |  28.7ms |  29.1ms |  824.2ms |  824.8ms |  797.0ms |  692.1ms  |
+|  bun / ubuntu-latest |  2.43s |  1.0ms |  28.7ms |  29.1ms |  824.2ms |  824.8ms |  797.0ms |  692.1ms  |
 
 ### Large Collection (posts, 200k)
 
@@ -51,88 +51,136 @@ Total configs: 7
 |  node 24 / macos-latest |  43.07s |  1.1ms |  285.1ms |  12.0ms |  79.4ms |  405.4ms |  80.6ms |  512.5ms  |
 |  node 24 / ubuntu-latest |  52.58s |  1.1ms |  552.9ms |  23.8ms |  117.9ms |  704.2ms |  117.9ms |  666.9ms  |
 |  node 24 / windows-latest |  83.96s |  1.1ms |  584.0ms |  30.4ms |  165.1ms |  954.2ms |  145.5ms |  956.7ms  |
-|  node 22 / ubuntu-latest |  68.12s |  985µs |  565.5ms |  27.3ms |  160.3ms |  705.6ms |  128.4ms |  679.4ms  |
+|  node 22 / ubuntu-latest |  68.12s |  1.0ms |  565.5ms |  27.3ms |  160.3ms |  705.6ms |  128.4ms |  679.4ms  |
 |  node 20 / ubuntu-latest |  71.96s |  1.0ms |  660.8ms |  30.3ms |  137.5ms |  782.5ms |  135.7ms |  762.9ms  |
 
 ## Fastest per Operation
 
-- **`add-large`**:
-   + 🥇 `Storage dir, node 24, macos latest` (43.07s)
-   + 🥈 `Storage dir-c, bun latest, ubuntu latest` (51.51s)
-   + 🥉 `Storage dir, bun latest, ubuntu latest` (51.55s)
+### **`add-large`**:
 
-- **`add-small`**:
-   + 🥇 `Storage dir, node 24, macos latest` (1.73s)
-   + 🥈 `Storage dir, bun latest, ubuntu latest` (2.41s)
-   + 🥉 `Storage dir-c, bun latest, ubuntu latest` (2.43s)
+| System | 🥇 | 🥈 | 🥉 |
+|---|---|---|---|
+|  macos-latest | 🥇 dir/24 (43.07s) | - | -  |
+|  ubuntu-latest | 🥇 dir-c/bun, dir/bun (51.53s) | 🥈 dir/24 (52.58s) | 🥉 dir/22 (68.12s)  |
+|  windows-latest | 🥇 dir/24 (83.96s) | - | -  |
 
-- **`find-paginated-large`**:
-   + 🥇 `Storage dir, node 24, macos latest` (12.0ms)
-   + 🥈 `Storage dir, node 24, ubuntu latest` (23.8ms)
-   + 🥉 `Storage dir, bun latest, ubuntu latest` (25.7ms)
+### **`add-small`**:
 
-- **`find-paginated-small`**:
-   + 🥇 `Storage dir, node 24, macos latest` (8.8ms)
-   + 🥈 `Storage dir, bun latest, ubuntu latest` (19.0ms)
-   + 🥉 `Storage dir, node 22, ubuntu latest` (24.0ms)
+| System | 🥇 | 🥈 | 🥉 |
+|---|---|---|---|
+|  macos-latest | 🥇 dir/24 (1.73s) | - | -  |
+|  ubuntu-latest | 🥇 dir/bun, dir-c/bun (2.42s) | 🥈 dir/24 (2.66s) | 🥉 dir/22, dir/20 (3.62s)  |
+|  windows-latest | 🥇 dir/24 (4.85s) | - | -  |
 
-- **`find-search-large`**:
-   + 🥇 `Storage dir, node 24, macos latest` (285.1ms)
-   + 🥈 `Storage dir-c, bun latest, ubuntu latest` (383.1ms)
-   + 🥉 `Storage dir, node 24, ubuntu latest` (552.9ms)
+### **`find-paginated-large`**:
 
-- **`find-search-small`**:
-   + 🥇 `Storage dir-c, bun latest, ubuntu latest` (28.7ms)
-   + 🥈 `Storage dir, node 24, macos latest` (37.8ms)
-   + 🥉 `Storage dir, node 24, windows latest` (62.0ms)
+| System | 🥇 | 🥈 | 🥉 |
+|---|---|---|---|
+|  macos-latest | 🥇 dir/24 (12.0ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/24 (23.8ms) | 🥈 dir/bun (25.7ms) | 🥉 dir/22 (27.3ms)  |
+|  windows-latest | 🥇 dir/24 (30.4ms) | - | -  |
 
-- **`findOne-large`**:
-   + 🥇 `Storage dir, node 22, ubuntu latest` (985µs)
-   + 🥈 `Storage dir, node 20, ubuntu latest` (1.0ms)
-   + 🥉 `Storage dir, node 24, ubuntu latest` (1.1ms)
+### **`find-paginated-small`**:
 
-- **`findOne-small`**:
-   + 🥇 `Storage dir-c, bun latest, ubuntu latest` (965µs)
-   + 🥈 `Storage dir, node 24, macos latest` (1.7ms)
-   + 🥉 `Storage dir, node 22, ubuntu latest` (3.1ms)
+| System | 🥇 | 🥈 | 🥉 |
+|---|---|---|---|
+|  macos-latest | 🥇 dir/24 (8.8ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/bun (19.0ms) | 🥈 dir/22 (24.0ms) | 🥉 dir/20 (25.4ms)  |
+|  windows-latest | 🥇 dir/24 (28.9ms) | - | -  |
 
-- **`remove-search-large`**:
-   + 🥇 `Storage dir, node 24, macos latest` (512.5ms)
-   + 🥈 `Storage dir, node 24, ubuntu latest` (666.9ms)
-   + 🥉 `Storage dir, node 22, ubuntu latest` (679.4ms)
+### **`find-search-large`**:
 
-- **`remove-search-small`**:
-   + 🥇 `Storage dir, node 24, macos latest` (29.5ms)
-   + 🥈 `Storage dir, node 24, ubuntu latest` (48.1ms)
-   + 🥉 `Storage dir, node 22, ubuntu latest` (51.8ms)
+| System | 🥇 | 🥈 | 🥉 |
+|---|---|---|---|
+|  macos-latest | 🥇 dir/24 (285.1ms) | - | -  |
+|  ubuntu-latest | 🥇 dir-c/bun (383.1ms) | 🥈 dir/24 (552.9ms) | 🥉 dir/22 (565.5ms)  |
+|  windows-latest | 🥇 dir/24 (584.0ms) | - | -  |
 
-- **`removeOne-large`**:
-   + 🥇 `Storage dir, node 24, macos latest` (80.6ms)
-   + 🥈 `Storage dir, node 24, ubuntu latest` (117.9ms)
-   + 🥉 `Storage dir, node 22, ubuntu latest` (128.4ms)
+### **`find-search-small`**:
 
-- **`removeOne-small`**:
-   + 🥇 `Storage dir, node 24, macos latest` (46.4ms)
-   + 🥈 `Storage dir, node 22, ubuntu latest` (66.1ms)
-   + 🥉 `Storage dir, node 24, windows latest` (67.3ms)
+| System | 🥇 | 🥈 | 🥉 |
+|---|---|---|---|
+|  macos-latest | 🥇 dir/24 (37.8ms) | - | -  |
+|  ubuntu-latest | 🥇 dir-c/bun (28.7ms) | 🥈 dir/bun (68.3ms) | 🥉 dir/22 (69.8ms)  |
+|  windows-latest | 🥇 dir/24 (62.0ms) | - | -  |
 
-- **`update-search-large`**:
-   + 🥇 `Storage dir, node 24, macos latest` (405.4ms)
-   + 🥈 `Storage dir, node 24, ubuntu latest` (704.2ms)
-   + 🥉 `Storage dir, node 22, ubuntu latest` (705.6ms)
+### **`findOne-large`**:
 
-- **`update-search-small`**:
-   + 🥇 `Storage dir, node 24, macos latest` (59.9ms)
-   + 🥈 `Storage dir, node 24, windows latest` (92.3ms)
-   + 🥉 `Storage dir, node 22, ubuntu latest` (98.5ms)
+| System | 🥇 | 🥈 | 🥉 |
+|---|---|---|---|
+|  macos-latest | 🥇 dir/24 (1.1ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/22, dir/20, dir/24 (1.0ms) | 🥈 dir/bun (1.7ms) | 🥉 dir-c/bun (40.7ms)  |
+|  windows-latest | 🥇 dir/24 (1.1ms) | - | -  |
 
-- **`updateOne-large`**:
-   + 🥇 `Storage dir, node 24, macos latest` (79.4ms)
-   + 🥈 `Storage dir, node 24, ubuntu latest` (117.9ms)
-   + 🥉 `Storage dir, node 20, ubuntu latest` (137.5ms)
+### **`findOne-small`**:
 
-- **`updateOne-small`**:
-   + 🥇 `Storage dir, node 24, macos latest` (37.2ms)
-   + 🥈 `Storage dir, node 22, ubuntu latest` (56.3ms)
-   + 🥉 `Storage dir, node 24, ubuntu latest` (60.0ms)
+| System | 🥇 | 🥈 | 🥉 |
+|---|---|---|---|
+|  macos-latest | 🥇 dir/24 (1.7ms) | - | -  |
+|  ubuntu-latest | 🥇 dir-c/bun (1.0ms) | 🥈 dir/22 (3.1ms) | 🥉 dir/20 (3.4ms)  |
+|  windows-latest | 🥇 dir/24 (3.7ms) | - | -  |
+
+### **`remove-search-large`**:
+
+| System | 🥇 | 🥈 | 🥉 |
+|---|---|---|---|
+|  macos-latest | 🥇 dir/24 (512.5ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/24 (666.9ms) | 🥈 dir/22 (679.4ms) | 🥉 dir/20 (762.9ms)  |
+|  windows-latest | 🥇 dir/24 (956.7ms) | - | -  |
+
+### **`remove-search-small`**:
+
+| System | 🥇 | 🥈 | 🥉 |
+|---|---|---|---|
+|  macos-latest | 🥇 dir/24 (29.5ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/24 (48.1ms) | 🥈 dir/22 (51.8ms) | 🥉 dir/20 (57.4ms)  |
+|  windows-latest | 🥇 dir/24 (56.2ms) | - | -  |
+
+### **`removeOne-large`**:
+
+| System | 🥇 | 🥈 | 🥉 |
+|---|---|---|---|
+|  macos-latest | 🥇 dir/24 (80.6ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/24 (117.9ms) | 🥈 dir/22 (128.4ms) | 🥉 dir/20 (135.7ms)  |
+|  windows-latest | 🥇 dir/24 (145.5ms) | - | -  |
+
+### **`removeOne-small`**:
+
+| System | 🥇 | 🥈 | 🥉 |
+|---|---|---|---|
+|  macos-latest | 🥇 dir/24 (46.4ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/22 (66.1ms) | 🥈 dir/24 (68.2ms) | 🥉 dir/20 (69.2ms)  |
+|  windows-latest | 🥇 dir/24 (67.3ms) | - | -  |
+
+### **`update-search-large`**:
+
+| System | 🥇 | 🥈 | 🥉 |
+|---|---|---|---|
+|  macos-latest | 🥇 dir/24 (405.4ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/24, dir/22 (704.9ms) | 🥈 dir/20 (782.5ms) | 🥉 dir-c/bun (15.73s)  |
+|  windows-latest | 🥇 dir/24 (954.2ms) | - | -  |
+
+### **`update-search-small`**:
+
+| System | 🥇 | 🥈 | 🥉 |
+|---|---|---|---|
+|  macos-latest | 🥇 dir/24 (59.9ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/22 (98.5ms) | 🥈 dir/24 (99.9ms) | 🥉 dir/20 (103.0ms)  |
+|  windows-latest | 🥇 dir/24 (92.3ms) | - | -  |
+
+### **`updateOne-large`**:
+
+| System | 🥇 | 🥈 | 🥉 |
+|---|---|---|---|
+|  macos-latest | 🥇 dir/24 (79.4ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/24 (117.9ms) | 🥈 dir/20 (137.5ms) | 🥉 dir/22 (160.3ms)  |
+|  windows-latest | 🥇 dir/24 (165.1ms) | - | -  |
+
+### **`updateOne-small`**:
+
+| System | 🥇 | 🥈 | 🥉 |
+|---|---|---|---|
+|  macos-latest | 🥇 dir/24 (37.2ms) | - | -  |
+|  ubuntu-latest | 🥇 dir/22 (56.3ms) | 🥈 dir/24 (60.0ms) | 🥉 dir/20 (64.0ms)  |
+|  windows-latest | 🥇 dir/24 (70.9ms) | - | -  |
 
