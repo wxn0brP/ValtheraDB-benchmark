@@ -18,6 +18,9 @@ on:
       install:
         required: false
         type: string
+      setup:
+        required: false
+        type: string
 
 jobs:
   benchmark-single:
@@ -40,6 +43,10 @@ jobs:
       - name: Install additional dependencies (Bun)
         if: inputs.ver == 'bun' && inputs.install
         run: bun add ${{ inputs.install }}
+
+      - name: Custom setup (Bun)
+        if: inputs.ver == 'bun' && inputs.setup
+        run: ${{ inputs.setup }}
 
       - name: Build (Bun)
         if: inputs.ver == 'bun'
@@ -66,6 +73,10 @@ jobs:
       - name: Install additional dependencies (Node.js)
         if: inputs.ver != 'bun' && inputs.install
         run: npm install ${{ inputs.install }}
+
+      - name: Custom setup (Node.js)
+        if: inputs.ver != 'bun' && inputs.setup
+        run: ${{ inputs.setup }}
 
       - name: Build (Node.js)
         if: inputs.ver != 'bun'
