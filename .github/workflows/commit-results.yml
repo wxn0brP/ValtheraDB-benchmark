@@ -34,9 +34,9 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
           ls -al
-          if [ -f results.json ]; then
+          if [ -f result.json ]; then
             mkdir -p ${{ inputs.one }}
-            mv results.json ${{ inputs.one }}/result.json
+            mv result.json ${{ inputs.one }}/result.json
           fi
           
           git add .
