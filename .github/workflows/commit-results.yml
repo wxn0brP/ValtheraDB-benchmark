@@ -26,13 +26,16 @@ jobs:
         uses: actions/download-artifact@v8
         with:
           path: .
+          merge-multiple: false
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
+          ls -al
           if [ -f results.json ]; then
+            mkdir -p ${{ inputs.one }}
             mv results.json ${{ inputs.one }}/result.json
           fi
           
