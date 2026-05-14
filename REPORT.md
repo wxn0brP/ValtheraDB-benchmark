@@ -1,7 +1,7 @@
 # Benchmark Report
 
-Generated: 2026-05-14T18:36:57.789Z  
-Total configs: 7
+Generated: 2026-05-14T19:06:11.618Z  
+Total configs: 13
 
 ## dir-c Adapter
 
@@ -53,6 +53,39 @@ Total configs: 7
 |  node 24 / windows-latest |  83.96s |  1.1ms |  584.0ms |  30.4ms |  165.1ms |  954.2ms |  145.5ms |  956.7ms  |
 |  node 22 / ubuntu-latest |  68.12s |  1.0ms |  565.5ms |  27.3ms |  160.3ms |  705.6ms |  128.4ms |  679.4ms  |
 |  node 20 / ubuntu-latest |  71.96s |  1.0ms |  660.8ms |  30.3ms |  137.5ms |  782.5ms |  135.7ms |  762.9ms  |
+
+## memory Adapter
+
+| Runtime / OS | Arch | Ops |
+|---|---|---|
+| bun / ubuntu-latest | x64 | 16 |
+| node 24 / macos-latest | arm64 | 16 |
+| node 24 / ubuntu-latest | x64 | 16 |
+| node 24 / windows-latest | x64 | 16 |
+| node 22 / ubuntu-latest | x64 | 16 |
+| node 20 / ubuntu-latest | x64 | 16 |
+
+### Small Collection (users, 10k)
+
+| Runtime / OS | `add` | `findOne` | `find-search` | `find-paginated` | `updateOne` | `update-search` | `removeOne` | `remove-search` |
+|---|---|---|---|---|---|---|---|---|
+|  bun / ubuntu-latest |  129.9ms |  1.0ms |  57.7ms |  1.7ms |  20.6ms |  50.2ms |  40.2ms |  26.8ms  |
+|  node 24 / macos-latest |  118.2ms |  1.0ms |  30.3ms |  3.1ms |  20.1ms |  41.0ms |  26.4ms |  12.9ms  |
+|  node 24 / ubuntu-latest |  117.9ms |  1.0ms |  53.0ms |  2.2ms |  34.0ms |  62.4ms |  53.6ms |  21.8ms  |
+|  node 24 / windows-latest |  124.7ms |  1.0ms |  41.3ms |  1.0ms |  23.0ms |  65.6ms |  50.9ms |  23.7ms  |
+|  node 22 / ubuntu-latest |  136.0ms |  1.0ms |  48.7ms |  1.3ms |  26.4ms |  66.4ms |  51.4ms |  27.9ms  |
+|  node 20 / ubuntu-latest |  133.2ms |  1.0ms |  61.3ms |  1.0ms |  28.7ms |  81.7ms |  46.4ms |  29.0ms  |
+
+### Large Collection (posts, 200k)
+
+| Runtime / OS | `add` | `findOne` | `find-search` | `find-paginated` | `updateOne` | `update-search` | `removeOne` | `remove-search` |
+|---|---|---|---|---|---|---|---|---|
+|  bun / ubuntu-latest |  2.55s |  1.0ms |  409.8ms |  9.9ms |  403.5ms |  377.5ms |  764.9ms |  341.0ms  |
+|  node 24 / macos-latest |  2.52s |  1.0ms |  236.9ms |  14.1ms |  362.8ms |  219.8ms |  538.7ms |  174.6ms  |
+|  node 24 / ubuntu-latest |  2.48s |  1.0ms |  266.5ms |  11.6ms |  322.0ms |  276.3ms |  638.8ms |  247.9ms  |
+|  node 24 / windows-latest |  2.44s |  1.0ms |  325.1ms |  11.2ms |  366.4ms |  341.2ms |  734.0ms |  310.5ms  |
+|  node 22 / ubuntu-latest |  2.46s |  1.0ms |  355.3ms |  12.3ms |  403.3ms |  358.1ms |  736.6ms |  332.8ms  |
+|  node 20 / ubuntu-latest |  2.40s |  1.0ms |  313.7ms |  10.7ms |  366.5ms |  312.1ms |  723.0ms |  295.6ms  |
 
 ## Fastest per Operation
 
