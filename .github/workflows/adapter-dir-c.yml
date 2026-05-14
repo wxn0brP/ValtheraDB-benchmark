@@ -27,7 +27,7 @@ jobs:
         cd db-dir-c
         mkdir -p build && cd build
         cmake ..
-        make build
+        make
     secrets: inherit
 
   commit-results:
