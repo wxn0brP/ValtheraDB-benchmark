@@ -33,6 +33,7 @@ jobs:
         run: |
           cd results
           bun ../master/src/calculate.ts
+          mv REPORT.md ../result-md
 
       - name: Commit and push
         run: |
