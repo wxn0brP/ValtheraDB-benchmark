@@ -13,7 +13,7 @@ jobs:
 
     uses: ./.github/workflows/run-single.yml
     with:
-      opts: '["./valthera-dir-c-test"]'
+      opts: '["./valthera-dir-c-test-$$"]'
       adapter: "dir-c"
       ver: ${{ matrix.ver }}
       os: ${{ matrix.os }}

@@ -23,7 +23,7 @@ jobs:
 
     uses: ./.github/workflows/run-single.yml
     with:
-      opts: '["./valthera-dir-test"]'
+      opts: '["./valthera-dir-test-$$"]'
       adapter: "dir"
       ver: ${{ matrix.ver }}
       os: ${{ matrix.os }}

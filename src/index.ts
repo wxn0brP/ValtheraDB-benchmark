@@ -1,10 +1,11 @@
-import { writeFileSync } from "fs";
+import { existsSync, readFileSync, writeFileSync } from "fs";
 import { db } from "./db";
 import { benchmarkLarge } from "./large";
 import { type BenchResult } from "./run";
 import { benchmarkSmall } from "./small";
 
 const allResults: BenchResult[] = [];
+const resultFile = "result.json";
 
 console.log("small collection (users, 10k)");
 const smallResults = await benchmarkSmall(db.c("users"));
@@ -24,4 +25,9 @@ const results = {
     results: allResults,
 };
 
-writeFileSync("result.json", JSON.stringify(results, null, 2));
+if (existsSync(resultFile)) {
+    const oldResults = JSON.parse(readFileSync(resultFile, "utf-8"));
+    results.results = [...oldResults.results, ...results.results];
+}
+
+writeFileSync(resultFile, JSON.stringify(results, null, 2));

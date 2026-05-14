@@ -25,69 +25,57 @@ on:
 jobs:
   benchmark-single:
     runs-on: ${{ inputs.os }}
+    defaults:
+      run:
+        shell: bash
+
+    env:
+      IS_BUN: ${{ inputs.ver == 'bun' }}
+      RUNTIME: ${{ inputs.ver == 'bun' && 'bun' || 'node' }}
+      INSTALL_CMD: ${{ inputs.ver == 'bun' && 'bun install' || 'npm install' }}
+      ADD_CMD: ${{ inputs.ver == 'bun' && 'bun add' || 'npm install' }}
+      BUILD_CMD: ${{ inputs.ver == 'bun' && 'bun run build' || 'npm run build' }}
+      EXEC_CMD: ${{ inputs.ver == 'bun' && 'bun run dist/index.js' || 'node dist/index.js' }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      # ---- for bun
       - name: Setup Bun
+        if: env.IS_BUN == 'true'
         uses: oven-sh/setup-bun@v2
-        if: inputs.ver == 'bun'
         with:
           bun-version: latest
 
-      - name: Install dependencies (Bun)
-        if: inputs.ver == 'bun'
-        run: bun install
-
-      - name: Install additional dependencies (Bun)
-        if: inputs.ver == 'bun' && inputs.install
-        run: bun add ${{ inputs.install }}
-
-      - name: Custom setup (Bun)
-        if: inputs.ver == 'bun' && inputs.setup
-        run: ${{ inputs.setup }}
-
-      - name: Build (Bun)
-        if: inputs.ver == 'bun'
-        run: bun run build
-
-      - name: Run benchmark for adapter (Bun)
-        if: inputs.ver == 'bun'
-        env:
-          VALTHERA_MASTER: ${{ inputs.adapter }}
-          VALTHERA_MASTER_OPTS: ${{ inputs.opts }}
-        run: bun run dist/index.js
-
-      # ---- for node
       - name: Setup Node.js
+        if: env.IS_BUN != 'true'
         uses: actions/setup-node@v6
-        if: inputs.ver != 'bun'
         with:
           node-version: ${{ inputs.ver }}
 
-      - name: Install dependencies (Node.js)
-        if: inputs.ver != 'bun'
-        run: npm install
+      - name: Install dependencies
+        run: $INSTALL_CMD
 
-      - name: Install additional dependencies (Node.js)
-        if: inputs.ver != 'bun' && inputs.install
-        run: npm install ${{ inputs.install }}
+      - name: Install additional dependencies
+        if: inputs.install
+        run: $ADD_CMD ${{ inputs.install }}
 
-      - name: Custom setup (Node.js)
-        if: inputs.ver != 'bun' && inputs.setup
+      - name: Custom setup
+        if: inputs.setup
         run: ${{ inputs.setup }}
 
-      - name: Build (Node.js)
-        if: inputs.ver != 'bun'
-        run: npm run build
+      - name: Build
+        run: $BUILD_CMD
 
-      - name: Run benchmark for adapter (Node.js)
-        if: inputs.ver != 'bun'
+      - name: Run benchmark 10 times
         env:
           VALTHERA_MASTER: ${{ inputs.adapter }}
           VALTHERA_MASTER_OPTS: ${{ inputs.opts }}
-        run: node dist/index.js
+        run: |
+          for i in {1..10}; do
+            echo "Benchmark run $i"
+            $EXEC_CMD
+          done
 
       - name: Upload results
         uses: actions/upload-artifact@v7

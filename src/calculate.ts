@@ -15,6 +15,26 @@ interface ResultFile {
     results: BenchResult[];
 }
 
+function median(values: number[]): number {
+    const sorted = [...values].sort((a, b) => a - b);
+    const mid = Math.floor(sorted.length / 2);
+    return sorted.length % 2 !== 0 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+}
+
+function normalize(results: BenchResult[]): BenchResult[] {
+    const map = new Map<string, number[]>();
+    for (const r of results) {
+        const arr = map.get(r.name);
+        if (arr) arr.push(r.time);
+        else map.set(r.name, [r.time]);
+    }
+    const out: BenchResult[] = [];
+    for (const [name, times] of map) {
+        out.push({ name, time: median(times) });
+    }
+    return out;
+}
+
 interface ParsedEntry {
     adapter: string;
     ver: string;
@@ -55,7 +75,9 @@ const dirs = readdirSync(".").filter(d => {
 const entries: Array<{ dir: string; info: ReturnType<typeof parseEntry>; data: ResultFile }> = [];
 for (const d of dirs.sort()) {
     const raw = readFileSync(join(d, "result.json"), "utf-8");
-    entries.push({ dir: d, info: parseEntry(d), data: JSON.parse(raw) });
+    const data: ResultFile = JSON.parse(raw);
+    data.results = normalize(data.results);
+    entries.push({ dir: d, info: parseEntry(d), data });
 }
 
 let md = "# Benchmark Report\n\n";
