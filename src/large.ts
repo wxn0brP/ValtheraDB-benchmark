@@ -17,7 +17,7 @@ export async function benchmarkLarge(col: Collection): Promise<BenchResult[]> {
             i++;
             if (i % 10000 === 0) console.log(`Added ${i} documents`);
         }
-    }));
+    }, COUNT));
 
     const firstId = ids[0];
     const midId = ids[Math.floor(ids.length / 2)];

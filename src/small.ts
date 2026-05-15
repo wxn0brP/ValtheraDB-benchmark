@@ -14,7 +14,7 @@ export async function benchmarkSmall(col: Collection): Promise<BenchResult[]> {
             const doc = await col.add(u);
             ids.push(doc._id);
         }
-    }));
+    }, COUNT));
 
     const firstId = ids[0];
     const midId = ids[Math.floor(ids.length / 2)];

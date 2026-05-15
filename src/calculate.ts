@@ -49,7 +49,7 @@ function parseEntry(dir: string): ParsedEntry {
 function fmt(ms: number): string {
     if (ms >= 1000) return (ms / 1000).toFixed(2) + "s";
     if (ms >= 1) return ms.toFixed(1) + "ms";
-    return "1.0ms";
+    return (ms * 1000).toFixed(2) + "μs";
 }
 
 function shortOp(name: string): string {
