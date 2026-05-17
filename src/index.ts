@@ -5,6 +5,16 @@ import { benchmarkLarge } from "./large";
 import { type BenchResult } from "./run";
 import { benchmarkSmall } from "./small";
 
+process.on("uncaughtException", (err) => {
+    console.error("Uncaught exception:", err);
+    process.exit(1);
+});
+
+process.on("unhandledRejection", (reason) => {
+    console.error("Unhandled rejection:", reason);
+    process.exit(1);
+});
+
 const adapterName = process.env.VALTHERA_MASTER || "";
 
 const [pkg] = adapterName.split(":");
