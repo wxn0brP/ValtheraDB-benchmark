@@ -2,6 +2,12 @@ name: adapter-bin
 
 on:
   workflow_dispatch:
+    inputs:
+      skip_commit:
+        description: "Skip commit results"
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   run-benchmark:
@@ -33,7 +39,8 @@ jobs:
 
   commit-results:
     needs: run-benchmark
+    if: ${{ github.event.inputs.skip_commit != 'true' }}
     uses: ./.github/workflows/commit-results.yml
     with:
-      adapter: "dir"
+      adapter: "bin"
     secrets: inherit
