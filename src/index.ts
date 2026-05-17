@@ -10,10 +10,14 @@ const adapterName = process.env.VALTHERA_MASTER || "";
 const [pkg] = adapterName.split(":");
 const setupPath = resolve(import.meta.dirname, "custom", `${pkg}.js`);
 if (existsSync(setupPath)) {
+    console.log(`-> Using custom setup for ${pkg}`);
     const mod = await import(setupPath);
     if (typeof mod.init === "function")
         await mod.init(db.dbAction);
-}
+    else
+        console.log(`-> No init function found for ${pkg}`);
+} else
+    console.log(`-> No custom setup found for ${pkg}`);
 
 const allResults: BenchResult[] = [];
 const resultFile = "result.json";
