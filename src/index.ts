@@ -21,7 +21,7 @@ const [pkg] = adapterName.split(":");
 const setupPath = resolve(import.meta.dirname, "custom", `${pkg}.js`);
 if (existsSync(setupPath)) {
     console.log(`-> Using custom setup for ${pkg}`);
-    const mod = await import(setupPath);
+    const mod = await import("./custom/" + pkg + ".js");
     if (typeof mod.init === "function")
         await mod.init(db.dbAction);
     else
