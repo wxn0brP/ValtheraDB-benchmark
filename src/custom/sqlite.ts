@@ -1,7 +1,4 @@
 export async function init(action: any) {
-    const db = action.db;
-    if (!db) return;
-
     const schemas = [
         `
 CREATE TABLE IF NOT EXISTS users (
@@ -23,7 +20,7 @@ CREATE TABLE IF NOT EXISTS posts (
     ];
 
     for (const sql of schemas) {
-        const stmt = await db._prepare(sql);
+        const stmt = await action._prepare(sql);
         await stmt.run();
     }
 }
