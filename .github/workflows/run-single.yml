@@ -77,8 +77,14 @@ jobs:
             $EXEC_CMD
           done
 
+      - name: Prepare artifact name
+        run: |
+          ARTIFACT_NAME="${{ inputs.adapter }}__${{ inputs.ver }}__${{ inputs.os }}"
+          ARTIFACT_NAME=$(echo "$ARTIFACT_NAME" | tr ':' '-')
+          echo "ARTIFACT_NAME=$ARTIFACT_NAME" >> $GITHUB_ENV
+
       - name: Upload results
         uses: actions/upload-artifact@v7
         with:
-          name: ${{ inputs.adapter }}__${{ inputs.ver }}__${{ inputs.os }}
+          name: ${{ env.ARTIFACT_NAME }}
           path: result.json
