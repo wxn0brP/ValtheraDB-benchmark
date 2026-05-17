@@ -12,6 +12,7 @@ on:
 jobs:
   run-benchmark:
     strategy:
+      fail-fast: false
       matrix:
         include:
           - ver: "bun"
