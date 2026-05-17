@@ -15,10 +15,8 @@ interface ResultFile {
     results: BenchResult[];
 }
 
-function median(values: number[]): number {
-    const sorted = [...values].sort((a, b) => a - b);
-    const mid = Math.floor(sorted.length / 2);
-    return sorted.length % 2 !== 0 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+function mean(values: number[]): number {
+    return values.reduce((a, b) => a + b, 0) / values.length;
 }
 
 function normalize(results: BenchResult[]): BenchResult[] {
@@ -30,7 +28,7 @@ function normalize(results: BenchResult[]): BenchResult[] {
     }
     const out: BenchResult[] = [];
     for (const [name, times] of map) {
-        out.push({ name, time: median(times) });
+        out.push({ name, time: mean(times) });
     }
     return out;
 }
@@ -88,7 +86,7 @@ Total results: ${entries.length}
 
 ## Notes
 
-- All timings are computed as the median of 10 benchmark runs per operation.
+- All timings are computed as the average of 3 benchmark runs per operation.
 - Benchmarks are executed on GitHub Actions runners using default hosted virtual machines (no dedicated or self-hosted hardware).
 
 `;
