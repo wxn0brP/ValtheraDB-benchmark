@@ -1,0 +1,650 @@
+{
+  "time": "2026-05-17T18:34:39.736Z",
+  "os": "win32",
+  "arch": "x64",
+  "node": "v24.15.0",
+  "bun": "N/A",
+  "adapter": "bin",
+  "results": [
+    {
+      "name": "add-small",
+      "time": 0.29508279
+    },
+    {
+      "name": "findOne-small",
+      "time": 1.9753000000000611
+    },
+    {
+      "name": "find-search-small",
+      "time": 1179.0498999999995
+    },
+    {
+      "name": "find-paginated-small",
+      "time": 1045.8202
+    },
+    {
+      "name": "updateOne-small",
+      "time": 2154.4303
+    },
+    {
+      "name": "update-search-small",
+      "time": 0.389299999999821
+    },
+    {
+      "name": "removeOne-small",
+      "time": 0.3506999999999607
+    },
+    {
+      "name": "remove-search-small",
+      "time": 0.19760000000042055
+    },
+    {
+      "name": "add-large",
+      "time": 0.24450088550000001
+    },
+    {
+      "name": "findOne-large",
+      "time": 0.5635000000038417
+    },
+    {
+      "name": "find-search-large",
+      "time": 16122.049899999998
+    },
+    {
+      "name": "find-paginated-large",
+      "time": 15353.108500000002
+    },
+    {
+      "name": "updateOne-large",
+      "time": 34123.428499999995
+    },
+    {
+      "name": "update-search-large",
+      "time": 33164.9265
+    },
+    {
+      "name": "removeOne-large",
+      "time": 17830.826
+    },
+    {
+      "name": "remove-search-large",
+      "time": 17105.252399999998
+    },
+    {
+      "name": "add-small",
+      "time": 0.25867464
+    },
+    {
+      "name": "findOne-small",
+      "time": 1.9389999999998508
+    },
+    {
+      "name": "find-search-small",
+      "time": 883.9425999999999
+    },
+    {
+      "name": "find-paginated-small",
+      "time": 856.7118999999998
+    },
+    {
+      "name": "updateOne-small",
+      "time": 1723.7228999999998
+    },
+    {
+      "name": "update-search-small",
+      "time": 0.3257000000003245
+    },
+    {
+      "name": "removeOne-small",
+      "time": 0.3352999999997337
+    },
+    {
+      "name": "remove-search-small",
+      "time": 0.2051999999994223
+    },
+    {
+      "name": "add-large",
+      "time": 0.272649582
+    },
+    {
+      "name": "findOne-large",
+      "time": 0.6016000000017812
+    },
+    {
+      "name": "find-search-large",
+      "time": 17188.625699999997
+    },
+    {
+      "name": "find-paginated-large",
+      "time": 17032.850900000005
+    },
+    {
+      "name": "updateOne-large",
+      "time": 35672.635800000004
+    },
+    {
+      "name": "update-search-large",
+      "time": 33075.43530000001
+    },
+    {
+      "name": "removeOne-large",
+      "time": 16559.738799999992
+    },
+    {
+      "name": "remove-search-large",
+      "time": 19713.1795
+    },
+    {
+      "name": "add-small",
+      "time": 0.25845054
+    },
+    {
+      "name": "findOne-small",
+      "time": 1.903099999999995
+    },
+    {
+      "name": "find-search-small",
+      "time": 906.3595
+    },
+    {
+      "name": "find-paginated-small",
+      "time": 822.2833000000005
+    },
+    {
+      "name": "updateOne-small",
+      "time": 1687.0976
+    },
+    {
+      "name": "update-search-small",
+      "time": 0.34179999999923893
+    },
+    {
+      "name": "removeOne-small",
+      "time": 0.3208999999997104
+    },
+    {
+      "name": "remove-search-small",
+      "time": 0.20190000000002328
+    },
+    {
+      "name": "add-large",
+      "time": 0.2689861515
+    },
+    {
+      "name": "findOne-large",
+      "time": 0.5113000000055763
+    },
+    {
+      "name": "find-search-large",
+      "time": 18603.04329999999
+    },
+    {
+      "name": "find-paginated-large",
+      "time": 21018.68419999999
+    },
+    {
+      "name": "updateOne-large",
+      "time": 42159.235799999995
+    },
+    {
+      "name": "update-search-large",
+      "time": 41751.504000000015
+    },
+    {
+      "name": "removeOne-large",
+      "time": 18146.279700000014
+    },
+    {
+      "name": "remove-search-large",
+      "time": 16017.339000000007
+    },
+    {
+      "name": "add-small",
+      "time": 0.2465583
+    },
+    {
+      "name": "findOne-small",
+      "time": 1.8153000000002066
+    },
+    {
+      "name": "find-search-small",
+      "time": 886.4998999999998
+    },
+    {
+      "name": "find-paginated-small",
+      "time": 856.6680999999999
+    },
+    {
+      "name": "updateOne-small",
+      "time": 2056.4192000000003
+    },
+    {
+      "name": "update-search-small",
+      "time": 0.3154000000004089
+    },
+    {
+      "name": "removeOne-small",
+      "time": 0.30240000000048894
+    },
+    {
+      "name": "remove-search-small",
+      "time": 0.2681000000002314
+    },
+    {
+      "name": "add-large",
+      "time": 0.35230971099999997
+    },
+    {
+      "name": "findOne-large",
+      "time": 1.070899999991525
+    },
+    {
+      "name": "find-search-large",
+      "time": 21741.2543
+    },
+    {
+      "name": "find-paginated-large",
+      "time": 20899.012699999992
+    },
+    {
+      "name": "updateOne-large",
+      "time": 42399.403799999985
+    },
+    {
+      "name": "update-search-large",
+      "time": 42749.13859999998
+    },
+    {
+      "name": "removeOne-large",
+      "time": 17132.96789999999
+    },
+    {
+      "name": "remove-search-large",
+      "time": 15880.463300000003
+    },
+    {
+      "name": "add-small",
+      "time": 0.24551978
+    },
+    {
+      "name": "findOne-small",
+      "time": 1.7690999999999804
+    },
+    {
+      "name": "find-search-small",
+      "time": 862.2111
+    },
+    {
+      "name": "find-paginated-small",
+      "time": 782.5284000000001
+    },
+    {
+      "name": "updateOne-small",
+      "time": 1601.0385000000006
+    },
+    {
+      "name": "update-search-small",
+      "time": 0.3541000000004715
+    },
+    {
+      "name": "removeOne-small",
+      "time": 0.3249999999998181
+    },
+    {
+      "name": "remove-search-small",
+      "time": 0.18289999999979045
+    },
+    {
+      "name": "add-large",
+      "time": 0.2243121675
+    },
+    {
+      "name": "findOne-large",
+      "time": 0.5918000000019674
+    },
+    {
+      "name": "find-search-large",
+      "time": 15950.281800000004
+    },
+    {
+      "name": "find-paginated-large",
+      "time": 15600.602200000008
+    },
+    {
+      "name": "updateOne-large",
+      "time": 31068.2537
+    },
+    {
+      "name": "update-search-large",
+      "time": 31572.283500000005
+    },
+    {
+      "name": "removeOne-large",
+      "time": 16842.514200000005
+    },
+    {
+      "name": "remove-search-large",
+      "time": 16039.665299999993
+    },
+    {
+      "name": "add-small",
+      "time": 0.24684994000000002
+    },
+    {
+      "name": "findOne-small",
+      "time": 1.731300000000374
+    },
+    {
+      "name": "find-search-small",
+      "time": 863.2051999999999
+    },
+    {
+      "name": "find-paginated-small",
+      "time": 783.2843999999996
+    },
+    {
+      "name": "updateOne-small",
+      "time": 1596.6326
+    },
+    {
+      "name": "update-search-small",
+      "time": 0.36569999999937863
+    },
+    {
+      "name": "removeOne-small",
+      "time": 0.3081999999994878
+    },
+    {
+      "name": "remove-search-small",
+      "time": 0.22999999999956344
+    },
+    {
+      "name": "add-large",
+      "time": 0.224971443
+    },
+    {
+      "name": "findOne-large",
+      "time": 0.8577000000004773
+    },
+    {
+      "name": "find-search-large",
+      "time": 16051.074099999998
+    },
+    {
+      "name": "find-paginated-large",
+      "time": 15588.883300000001
+    },
+    {
+      "name": "updateOne-large",
+      "time": 31135.202000000005
+    },
+    {
+      "name": "update-search-large",
+      "time": 31521.331800000014
+    },
+    {
+      "name": "removeOne-large",
+      "time": 16589.784600000014
+    },
+    {
+      "name": "remove-search-large",
+      "time": 16096.071100000001
+    },
+    {
+      "name": "add-small",
+      "time": 0.24937327
+    },
+    {
+      "name": "findOne-small",
+      "time": 1.7829000000001543
+    },
+    {
+      "name": "find-search-small",
+      "time": 867.2284
+    },
+    {
+      "name": "find-paginated-small",
+      "time": 792.0942
+    },
+    {
+      "name": "updateOne-small",
+      "time": 1605.4388
+    },
+    {
+      "name": "update-search-small",
+      "time": 0.3547999999991589
+    },
+    {
+      "name": "removeOne-small",
+      "time": 0.3419999999996435
+    },
+    {
+      "name": "remove-search-small",
+      "time": 0.1853000000000975
+    },
+    {
+      "name": "add-large",
+      "time": 0.2273807505
+    },
+    {
+      "name": "findOne-large",
+      "time": 0.5425000000032014
+    },
+    {
+      "name": "find-search-large",
+      "time": 16097.975599999998
+    },
+    {
+      "name": "find-paginated-large",
+      "time": 15594.3033
+    },
+    {
+      "name": "updateOne-large",
+      "time": 31291.13100000001
+    },
+    {
+      "name": "update-search-large",
+      "time": 31860.82070000001
+    },
+    {
+      "name": "removeOne-large",
+      "time": 16753.953099999984
+    },
+    {
+      "name": "remove-search-large",
+      "time": 16134.794499999989
+    },
+    {
+      "name": "add-small",
+      "time": 0.24854918000000004
+    },
+    {
+      "name": "findOne-small",
+      "time": 1.7992999999996755
+    },
+    {
+      "name": "find-search-small",
+      "time": 869.0649000000003
+    },
+    {
+      "name": "find-paginated-small",
+      "time": 792.4375
+    },
+    {
+      "name": "updateOne-small",
+      "time": 1607.5127999999995
+    },
+    {
+      "name": "update-search-small",
+      "time": 0.395900000000438
+    },
+    {
+      "name": "removeOne-small",
+      "time": 0.34799999999995634
+    },
+    {
+      "name": "remove-search-small",
+      "time": 0.18359999999938736
+    },
+    {
+      "name": "add-large",
+      "time": 0.2258617325
+    },
+    {
+      "name": "findOne-large",
+      "time": 0.5685999999986961
+    },
+    {
+      "name": "find-search-large",
+      "time": 16047.842799999999
+    },
+    {
+      "name": "find-paginated-large",
+      "time": 15695.930300000007
+    },
+    {
+      "name": "updateOne-large",
+      "time": 31292.5705
+    },
+    {
+      "name": "update-search-large",
+      "time": 32006.83690000001
+    },
+    {
+      "name": "removeOne-large",
+      "time": 16571.688200000004
+    },
+    {
+      "name": "remove-search-large",
+      "time": 16232.751300000004
+    },
+    {
+      "name": "add-small",
+      "time": 0.24717448999999997
+    },
+    {
+      "name": "findOne-small",
+      "time": 1.816200000000208
+    },
+    {
+      "name": "find-search-small",
+      "time": 870.8693000000003
+    },
+    {
+      "name": "find-paginated-small",
+      "time": 788.3003000000003
+    },
+    {
+      "name": "updateOne-small",
+      "time": 1600.8770999999997
+    },
+    {
+      "name": "update-search-small",
+      "time": 0.3290999999999258
+    },
+    {
+      "name": "removeOne-small",
+      "time": 0.3253999999997177
+    },
+    {
+      "name": "remove-search-small",
+      "time": 0.20470000000022992
+    },
+    {
+      "name": "add-large",
+      "time": 0.22627003250000002
+    },
+    {
+      "name": "findOne-large",
+      "time": 0.5434999999997672
+    },
+    {
+      "name": "find-search-large",
+      "time": 16000.923199999997
+    },
+    {
+      "name": "find-paginated-large",
+      "time": 15553.109899999996
+    },
+    {
+      "name": "updateOne-large",
+      "time": 31328.609299999996
+    },
+    {
+      "name": "update-search-large",
+      "time": 31756.271699999998
+    },
+    {
+      "name": "removeOne-large",
+      "time": 16497.58309999999
+    },
+    {
+      "name": "remove-search-large",
+      "time": 15907.00469999999
+    },
+    {
+      "name": "add-small",
+      "time": 0.24743345
+    },
+    {
+      "name": "findOne-small",
+      "time": 1.94820000000027
+    },
+    {
+      "name": "find-search-small",
+      "time": 849.5504000000001
+    },
+    {
+      "name": "find-paginated-small",
+      "time": 787.9940999999994
+    },
+    {
+      "name": "updateOne-small",
+      "time": 1623.9202999999998
+    },
+    {
+      "name": "update-search-small",
+      "time": 0.40310000000044965
+    },
+    {
+      "name": "removeOne-small",
+      "time": 0.3613000000004831
+    },
+    {
+      "name": "remove-search-small",
+      "time": 0.1896999999999025
+    },
+    {
+      "name": "add-large",
+      "time": 0.22313961100000002
+    },
+    {
+      "name": "findOne-large",
+      "time": 0.5362000000022817
+    },
+    {
+      "name": "find-search-large",
+      "time": 15773.660599999996
+    },
+    {
+      "name": "find-paginated-large",
+      "time": 15454.444300000003
+    },
+    {
+      "name": "updateOne-large",
+      "time": 30996.508100000006
+    },
+    {
+      "name": "update-search-large",
+      "time": 31562.6792
+    },
+    {
+      "name": "removeOne-large",
+      "time": 16517.60519999999
+    },
+    {
+      "name": "remove-search-large",
+      "time": 16036.876199999999
+    }
+  ]
+}
