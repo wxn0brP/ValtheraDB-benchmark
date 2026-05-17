@@ -1,8 +1,19 @@
 import { existsSync, readFileSync, writeFileSync } from "fs";
+import { resolve } from "path";
 import { db } from "./db";
 import { benchmarkLarge } from "./large";
 import { type BenchResult } from "./run";
 import { benchmarkSmall } from "./small";
+
+const adapterName = process.env.VALTHERA_MASTER || "";
+
+const [pkg] = adapterName.split(":");
+const setupPath = resolve(import.meta.dirname, "custom", `${pkg}.js`);
+if (existsSync(setupPath)) {
+    const mod = await import(setupPath);
+    if (typeof mod.init === "function")
+        await mod.init(db.dbAction);
+}
 
 const allResults: BenchResult[] = [];
 const resultFile = "result.json";
