@@ -73,7 +73,7 @@ jobs:
           VALTHERA_MASTER_OPTS: ${{ inputs.opts }}
         run: |
           for i in {1..10}; do
-            echo "Benchmark run $i"
+            echo "-------------> Benchmark run $i"
             $EXEC_CMD
           done
 
