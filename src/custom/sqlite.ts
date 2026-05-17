@@ -1,5 +1,6 @@
 export async function init(action: any) {
-    const stmt = await action._prepare(`
+    const schemas = [
+        `
 CREATE TABLE IF NOT EXISTS users (
     _id TEXT PRIMARY KEY,
     name TEXT,
@@ -7,14 +8,19 @@ CREATE TABLE IF NOT EXISTS users (
     email TEXT,
     isActive INTEGER,
     createdAt INTEGER
-);
+)`,
+        `
 CREATE TABLE IF NOT EXISTS posts (
     _id TEXT PRIMARY KEY,
     title TEXT,
     author TEXT,
     views INTEGER,
     createdAt INTEGER
-);
-`);
-    await stmt.run();
+)`,
+    ];
+
+    for (const sql of schemas) {
+        const stmt = await action._prepare(sql);
+        await stmt.run();
+    }
 }
