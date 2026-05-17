@@ -69,7 +69,7 @@ jobs:
 
     uses: ./.github/workflows/run-single.yml
     with:
-      opts: '["./valthera-sqlite-test-$$.sqlite"]'
+      opts: '["./valthera-sqlite-test-$$.sqlite", {}, {}]'
       adapter: ${{ matrix.adapter }}
       ver: ${{ matrix.ver }}
       os: ${{ matrix.os }}
