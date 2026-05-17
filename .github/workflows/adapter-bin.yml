@@ -27,7 +27,7 @@ jobs:
       adapter: "bin"
       ver: ${{ matrix.ver }}
       os: ${{ matrix.os }}
-      install: ""
+      install: "github:wxn0brp/ValtheraDB-storage-bin#dist"
       setup: ""
     secrets: inherit
 
