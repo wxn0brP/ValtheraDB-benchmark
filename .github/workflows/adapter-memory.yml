@@ -24,7 +24,11 @@ jobs:
             os: "ubuntu-latest"
           - ver: "24"
             os: "windows-latest"
+          - ver: "bun"
+            os: "windows-latest"
           - ver: "24"
+            os: "macos-latest"
+          - ver: "bun"
             os: "macos-latest"
 
     uses: ./.github/workflows/run-single.yml
