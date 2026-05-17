@@ -1,650 +1,650 @@
 {
-  "time": "2026-05-17T18:01:35.195Z",
-  "os": "linux",
+  "time": "2026-05-17T18:02:04.167Z",
+  "os": "win32",
   "arch": "x64",
-  "node": "v22.22.2",
-  "bun": "N/A",
+  "node": "v24.3.0",
+  "bun": "1.3.14",
   "adapter": "memory",
   "results": [
     {
       "name": "add-small",
-      "time": 0.013220044099999998
+      "time": 0.01280241
     },
     {
       "name": "findOne-small",
-      "time": 0.7435409999999933
+      "time": 1.0182000000000073
     },
     {
       "name": "find-search-small",
-      "time": 44.052142
+      "time": 57.72369999999998
     },
     {
       "name": "find-paginated-small",
-      "time": 1.0477670000000217
+      "time": 1.5991999999999962
     },
     {
       "name": "updateOne-small",
-      "time": 26.262564000000026
+      "time": 28.731600000000014
     },
     {
       "name": "update-search-small",
-      "time": 60.827162999999985
+      "time": 64.75939999999997
     },
     {
       "name": "removeOne-small",
-      "time": 56.49479400000001
+      "time": 46.96900000000005
     },
     {
       "name": "remove-search-small",
-      "time": 31.574765000000014
+      "time": 38.0822
     },
     {
       "name": "add-large",
-      "time": 0.012133675594999999
+      "time": 0.0138952165
     },
     {
       "name": "findOne-large",
-      "time": 0.12708599999996295
+      "time": 0.4067000000000007
     },
     {
       "name": "find-search-large",
-      "time": 290.081498
+      "time": 496.1604000000002
     },
     {
       "name": "find-paginated-large",
-      "time": 10.972198999999819
+      "time": 6.4978000000000975
     },
     {
       "name": "updateOne-large",
-      "time": 341.0324419999997
+      "time": 456.66110000000026
     },
     {
       "name": "update-search-large",
-      "time": 293.9618519999999
+      "time": 439.7475999999997
     },
     {
       "name": "removeOne-large",
-      "time": 680.5392969999998
+      "time": 897.0096999999996
     },
     {
       "name": "remove-search-large",
-      "time": 272.02055800000016
+      "time": 388.22060000000056
     },
     {
       "name": "add-small",
-      "time": 0.013393079899999999
+      "time": 0.01337797
     },
     {
       "name": "findOne-small",
-      "time": 0.6739430000000084
+      "time": 1.0728000000000009
     },
     {
       "name": "find-search-small",
-      "time": 41.48880199999999
+      "time": 58.22739999999999
     },
     {
       "name": "find-paginated-small",
-      "time": 1.077132000000006
+      "time": 1.9372999999999934
     },
     {
       "name": "updateOne-small",
-      "time": 27.071680000000015
+      "time": 23.014399999999966
     },
     {
       "name": "update-search-small",
-      "time": 64.75501699999998
+      "time": 61.7962
     },
     {
       "name": "removeOne-small",
-      "time": 48.75503000000003
+      "time": 42.87389999999999
     },
     {
       "name": "remove-search-small",
-      "time": 29.98226999999997
+      "time": 30.21429999999998
     },
     {
       "name": "add-large",
-      "time": 0.011952139050000001
+      "time": 0.013060996499999998
     },
     {
       "name": "findOne-large",
-      "time": 0.17867200000000594
+      "time": 0.21480000000019572
     },
     {
       "name": "find-search-large",
-      "time": 296.93671700000004
+      "time": 466.0763000000002
     },
     {
       "name": "find-paginated-large",
-      "time": 10.75493600000027
+      "time": 5.70010000000002
     },
     {
       "name": "updateOne-large",
-      "time": 341.80407200000036
+      "time": 452.50559999999996
     },
     {
       "name": "update-search-large",
-      "time": 300.58544500000016
+      "time": 443.0048999999999
     },
     {
       "name": "removeOne-large",
-      "time": 690.0458989999997
+      "time": 875.9836999999998
     },
     {
       "name": "remove-search-large",
-      "time": 288.7783959999997
+      "time": 400.45910000000003
     },
     {
       "name": "add-small",
-      "time": 0.0152085675
+      "time": 0.01341598
     },
     {
       "name": "findOne-small",
-      "time": 0.8046749999999747
+      "time": 0.9901000000000124
     },
     {
       "name": "find-search-small",
-      "time": 44.720147
+      "time": 54.8656
     },
     {
       "name": "find-paginated-small",
-      "time": 1.3204939999999965
+      "time": 1.6322999999999865
     },
     {
       "name": "updateOne-small",
-      "time": 26.574854999999985
+      "time": 21.41919999999999
     },
     {
       "name": "update-search-small",
-      "time": 57.893325000000004
+      "time": 61.448500000000024
     },
     {
       "name": "removeOne-small",
-      "time": 44.733630000000005
+      "time": 42.834900000000005
     },
     {
       "name": "remove-search-small",
-      "time": 27.454560000000015
+      "time": 30.700499999999977
     },
     {
       "name": "add-large",
-      "time": 0.012369739165000001
+      "time": 0.012977505
     },
     {
       "name": "findOne-large",
-      "time": 0.14501900000004753
+      "time": 0.26199999999971624
     },
     {
       "name": "find-search-large",
-      "time": 302.04856599999994
+      "time": 452.19659999999976
     },
     {
       "name": "find-paginated-large",
-      "time": 11.547939999999926
+      "time": 6.384199999999964
     },
     {
       "name": "updateOne-large",
-      "time": 342.80900299999985
+      "time": 453.53179999999975
     },
     {
       "name": "update-search-large",
-      "time": 300.64565900000025
+      "time": 431.2285999999999
     },
     {
       "name": "removeOne-large",
-      "time": 696.7272799999996
+      "time": 880.0766999999996
     },
     {
       "name": "remove-search-large",
-      "time": 277.699697
+      "time": 388.8735000000006
     },
     {
       "name": "add-small",
-      "time": 0.013845628300000001
+      "time": 0.013049939999999998
     },
     {
       "name": "findOne-small",
-      "time": 0.6936390000000188
+      "time": 1.1557999999999993
     },
     {
       "name": "find-search-small",
-      "time": 43.777062
+      "time": 57.61960000000002
     },
     {
       "name": "find-paginated-small",
-      "time": 1.016338999999988
+      "time": 1.8326999999999884
     },
     {
       "name": "updateOne-small",
-      "time": 24.103872999999993
+      "time": 23.46260000000001
     },
     {
       "name": "update-search-small",
-      "time": 60.012151999999986
+      "time": 61.57549999999998
     },
     {
       "name": "removeOne-small",
-      "time": 45.10100299999999
+      "time": 42.98660000000001
     },
     {
       "name": "remove-search-small",
-      "time": 31.522884999999974
+      "time": 30.57370000000003
     },
     {
       "name": "add-large",
-      "time": 0.011587817255
+      "time": 0.0131400665
     },
     {
       "name": "findOne-large",
-      "time": 0.14329700000007506
+      "time": 0.2624999999998181
     },
     {
       "name": "find-search-large",
-      "time": 289.43993500000033
+      "time": 458.74429999999984
     },
     {
       "name": "find-paginated-large",
-      "time": 10.521442000000206
+      "time": 6.468699999999899
     },
     {
       "name": "updateOne-large",
-      "time": 342.4299880000003
+      "time": 453.1732000000002
     },
     {
       "name": "update-search-large",
-      "time": 288.48621300000013
+      "time": 428.87170000000015
     },
     {
       "name": "removeOne-large",
-      "time": 665.8733430000002
+      "time": 879.1779000000006
     },
     {
       "name": "remove-search-large",
-      "time": 273.6048639999999
+      "time": 392.95989999999983
     },
     {
       "name": "add-small",
-      "time": 0.012892515500000002
+      "time": 0.01231238
     },
     {
       "name": "findOne-small",
-      "time": 0.7242159999999842
+      "time": 1.0951000000000022
     },
     {
       "name": "find-search-small",
-      "time": 44.19436000000002
+      "time": 59.389699999999976
     },
     {
       "name": "find-paginated-small",
-      "time": 0.8151650000000075
+      "time": 3.7697000000000003
     },
     {
       "name": "updateOne-small",
-      "time": 23.15749500000001
+      "time": 22.062100000000015
     },
     {
       "name": "update-search-small",
-      "time": 60.35242199999996
+      "time": 62.9597
     },
     {
       "name": "removeOne-small",
-      "time": 48.13047599999999
+      "time": 42.936800000000005
     },
     {
       "name": "remove-search-small",
-      "time": 28.709626000000014
+      "time": 30.845399999999984
     },
     {
       "name": "add-large",
-      "time": 0.011865881365
+      "time": 0.013004918
     },
     {
       "name": "findOne-large",
-      "time": 0.12565399999994042
+      "time": 0.2547000000004118
     },
     {
       "name": "find-search-large",
-      "time": 304.57292899999993
+      "time": 470.1187
     },
     {
       "name": "find-paginated-large",
-      "time": 10.820382999999765
+      "time": 6.6766999999999825
     },
     {
       "name": "updateOne-large",
-      "time": 343.0915460000001
+      "time": 458.45820000000003
     },
     {
       "name": "update-search-large",
-      "time": 290.49815499999977
+      "time": 432.9509000000003
     },
     {
       "name": "removeOne-large",
-      "time": 662.7579189999997
+      "time": 893.7806999999993
     },
     {
       "name": "remove-search-large",
-      "time": 270.47014800000034
+      "time": 390.3225999999995
     },
     {
       "name": "add-small",
-      "time": 0.014099983699999999
+      "time": 0.01336507
     },
     {
       "name": "findOne-small",
-      "time": 0.7300669999999911
+      "time": 1.1234999999999786
     },
     {
       "name": "find-search-small",
-      "time": 41.811319
+      "time": 58.373200000000026
     },
     {
       "name": "find-paginated-small",
-      "time": 0.660316999999992
+      "time": 1.9165000000000134
     },
     {
       "name": "updateOne-small",
-      "time": 21.128113000000013
+      "time": 24.163999999999987
     },
     {
       "name": "update-search-small",
-      "time": 59.46610499999997
+      "time": 61.71519999999998
     },
     {
       "name": "removeOne-small",
-      "time": 49.238855
+      "time": 43.108000000000004
     },
     {
       "name": "remove-search-small",
-      "time": 27.028239999999983
+      "time": 31.041499999999985
     },
     {
       "name": "add-large",
-      "time": 0.011959942625
+      "time": 0.013185263
     },
     {
       "name": "findOne-large",
-      "time": 0.1467729999999392
+      "time": 0.26430000000027576
     },
     {
       "name": "find-search-large",
-      "time": 288.693092
+      "time": 461.1208999999999
     },
     {
       "name": "find-paginated-large",
-      "time": 10.769430000000284
+      "time": 6.4702000000002045
     },
     {
       "name": "updateOne-large",
-      "time": 339.920842
+      "time": 457.8584000000001
     },
     {
       "name": "update-search-large",
-      "time": 291.4314129999998
+      "time": 434.1345000000001
     },
     {
       "name": "removeOne-large",
-      "time": 698.5689539999998
+      "time": 925.5070999999998
     },
     {
       "name": "remove-search-large",
-      "time": 266.88883799999985
+      "time": 389.98279999999977
     },
     {
       "name": "add-small",
-      "time": 0.013862423200000001
+      "time": 0.012954910000000002
     },
     {
       "name": "findOne-small",
-      "time": 0.7355799999999988
+      "time": 0.9836999999999989
     },
     {
       "name": "find-search-small",
-      "time": 45.09584699999999
+      "time": 59.0316
     },
     {
       "name": "find-paginated-small",
-      "time": 0.939819
+      "time": 1.5533000000000072
     },
     {
       "name": "updateOne-small",
-      "time": 21.731066999999996
+      "time": 22.169299999999993
     },
     {
       "name": "update-search-small",
-      "time": 60.87764899999999
+      "time": 61.5403
     },
     {
       "name": "removeOne-small",
-      "time": 45.49152400000003
+      "time": 43.266999999999996
     },
     {
       "name": "remove-search-small",
-      "time": 32.777333
+      "time": 30.87949999999995
     },
     {
       "name": "add-large",
-      "time": 0.01175153683
+      "time": 0.0131313725
     },
     {
       "name": "findOne-large",
-      "time": 0.13513100000000122
+      "time": 0.27420000000029177
     },
     {
       "name": "find-search-large",
-      "time": 291.14040799999975
+      "time": 458.0571
     },
     {
       "name": "find-paginated-large",
-      "time": 10.63846999999987
+      "time": 6.416600000000017
     },
     {
       "name": "updateOne-large",
-      "time": 352.9252879999999
+      "time": 460.0086000000001
     },
     {
       "name": "update-search-large",
-      "time": 286.9190329999997
+      "time": 445.4928
     },
     {
       "name": "removeOne-large",
-      "time": 663.5254120000004
+      "time": 909.2618000000002
     },
     {
       "name": "remove-search-large",
-      "time": 272.15149999999994
+      "time": 396.6761999999999
     },
     {
       "name": "add-small",
-      "time": 0.013982896199999999
+      "time": 0.0129411
     },
     {
       "name": "findOne-small",
-      "time": 0.6891300000000058
+      "time": 1.0452999999999975
     },
     {
       "name": "find-search-small",
-      "time": 47.82397500000002
+      "time": 56.32420000000002
     },
     {
       "name": "find-paginated-small",
-      "time": 1.0779830000000175
+      "time": 1.6274000000000228
     },
     {
       "name": "updateOne-small",
-      "time": 28.152026999999975
+      "time": 22.252399999999994
     },
     {
       "name": "update-search-small",
-      "time": 63.14694100000003
+      "time": 62.7389
     },
     {
       "name": "removeOne-small",
-      "time": 48.84196700000001
+      "time": 43.765600000000006
     },
     {
       "name": "remove-search-small",
-      "time": 29.224680999999975
+      "time": 30.796899999999994
     },
     {
       "name": "add-large",
-      "time": 0.011803448979999999
+      "time": 0.012971647000000001
     },
     {
       "name": "findOne-large",
-      "time": 0.1440279999997074
+      "time": 0.25640000000021246
     },
     {
       "name": "find-search-large",
-      "time": 293.552635
+      "time": 435.8696
     },
     {
       "name": "find-paginated-large",
-      "time": 10.896275999999943
+      "time": 6.594400000000405
     },
     {
       "name": "updateOne-large",
-      "time": 348.18039499999986
+      "time": 460.8164999999999
     },
     {
       "name": "update-search-large",
-      "time": 291.680034
+      "time": 436.4042000000004
     },
     {
       "name": "removeOne-large",
-      "time": 693.4437269999994
+      "time": 890.0983999999999
     },
     {
       "name": "remove-search-large",
-      "time": 275.02480300000025
+      "time": 390.39469999999983
     },
     {
       "name": "add-small",
-      "time": 0.0143528738
+      "time": 0.01353126
     },
     {
       "name": "findOne-small",
-      "time": 0.7038589999999942
+      "time": 1.0529999999999973
     },
     {
       "name": "find-search-small",
-      "time": 45.25932400000002
+      "time": 60.2346
     },
     {
       "name": "find-paginated-small",
-      "time": 0.8551290000000051
+      "time": 1.5230999999999995
     },
     {
       "name": "updateOne-small",
-      "time": 23.087338000000017
+      "time": 22.414199999999994
     },
     {
       "name": "update-search-small",
-      "time": 56.703981
+      "time": 62.64190000000002
     },
     {
       "name": "removeOne-small",
-      "time": 46.43476800000002
+      "time": 43.100599999999986
     },
     {
       "name": "remove-search-small",
-      "time": 32.534941
+      "time": 32.52940000000001
     },
     {
       "name": "add-large",
-      "time": 0.011928653039999999
+      "time": 0.0129551035
     },
     {
       "name": "findOne-large",
-      "time": 0.12217800000007628
+      "time": 0.2681999999999789
     },
     {
       "name": "find-search-large",
-      "time": 294.2762910000001
+      "time": 454.05459999999994
     },
     {
       "name": "find-paginated-large",
-      "time": 11.172549000000345
+      "time": 6.357199999999921
     },
     {
       "name": "updateOne-large",
-      "time": 332.3584430000001
+      "time": 454.3544999999999
     },
     {
       "name": "update-search-large",
-      "time": 291.419179
+      "time": 443.8121000000001
     },
     {
       "name": "removeOne-large",
-      "time": 664.5021569999994
+      "time": 932.5846999999994
     },
     {
       "name": "remove-search-large",
-      "time": 273.0607769999997
+      "time": 396.0560000000005
     },
     {
       "name": "add-small",
-      "time": 0.0135665863
+      "time": 0.013376690000000002
     },
     {
       "name": "findOne-small",
-      "time": 0.7345650000000035
+      "time": 1.050200000000018
     },
     {
       "name": "find-search-small",
-      "time": 44.398291
+      "time": 58.06399999999999
     },
     {
       "name": "find-paginated-small",
-      "time": 1.0280590000000132
+      "time": 1.8789000000000158
     },
     {
       "name": "updateOne-small",
-      "time": 27.09535599999998
+      "time": 22.44769999999997
     },
     {
       "name": "update-search-small",
-      "time": 62.767967
+      "time": 61.3811
     },
     {
       "name": "removeOne-small",
-      "time": 48.06334199999998
+      "time": 42.8476
     },
     {
       "name": "remove-search-small",
-      "time": 31.115302999999983
+      "time": 30.924300000000017
     },
     {
       "name": "add-large",
-      "time": 0.011917143665
+      "time": 0.013599701
     },
     {
       "name": "findOne-large",
-      "time": 0.14816500000006272
+      "time": 0.2723000000000866
     },
     {
       "name": "find-search-large",
-      "time": 287.8895279999997
+      "time": 475.0694000000003
     },
     {
       "name": "find-paginated-large",
-      "time": 10.810779000000366
+      "time": 6.435699999999997
     },
     {
       "name": "updateOne-large",
-      "time": 339.2758520000002
+      "time": 475.6223
     },
     {
       "name": "update-search-large",
-      "time": 290.237971
+      "time": 440.4366999999993
     },
     {
       "name": "removeOne-large",
-      "time": 678.2605050000002
+      "time": 933.6797000000006
     },
     {
       "name": "remove-search-large",
-      "time": 271.3462180000006
+      "time": 392.70360000000073
     }
   ]
 }
