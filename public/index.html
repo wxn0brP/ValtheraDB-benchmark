@@ -34,13 +34,21 @@
         </div>
 
         <div id="content" style="display: none;">
-            <div
-                style="display: flex; justify-content: flex-end; gap: 0.75rem; align-items: center; margin-bottom: 0.5rem;">
-                <span id="cache-info" class="time" style="font-size: 0.8rem;"></span>
-                <button id="clear-cache" class="outline contrast" style="padding: 0.15rem 0.5rem; font-size: 0.75rem;">
-                    Force Clear Cache
-                </button>
-            </div>
+            <article style="--pico-font-size: 0.85rem; border-left: 6px solid var(--pico-primary);">
+                <strong style="font-size: 1rem;">📌 Notes</strong>
+                <ul style="margin: 0.5rem 0 0; padding-left: 1.25rem;">
+                    <li>All timings are computed as the average of 3 benchmark runs per operation.</li>
+                    <li>
+                        Benchmarks are executed on GitHub Actions runners using default hosted virtual machines.
+                    </li>
+                </ul>
+            </article>
+
+            <button id="clear-cache" class="outline contrast"
+                style="padding: 0.15rem 0.5rem; font-size: 0.75rem; margin-bottom: 10px;">
+                Force Clear Cache
+            </button>
+
             <section id="summary">
                 <h2>Fastest per Operation</h2>
                 <p>Top performing adapters across all tests</p>
@@ -72,7 +80,8 @@
 
             <section id="tables">
                 <h2>Detailed Results</h2>
-                <label>Select Adapter:
+                <label>
+                    Select Adapter:
                     <select id="tables-adapter-select"></select>
                 </label>
                 <div id="tables-container"></div>
