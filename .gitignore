@@ -7,3 +7,6 @@ dist
 package-lock.json
 yarn.lock
 bun.lock
+
+public/*.js
+public/*.js.map

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ValtheraDB Benchmark Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="container sticky">
+        <nav>
+            <ul>
+                <li><strong>ValtheraDB Benchmarks</strong></li>
+            </ul>
+            <ul id="nav-links">
+                <li><a href="#summary">Summary</a></li>
+                <li><a href="#compare">Compare</a></li>
+                <li><a href="#tables">Detailed Tables</a></li>
+            </ul>
+            <button class="hamburger" aria-label="Menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div id="loader" style="text-align: center; margin-top: 10vh;">
+            <p aria-busy="true">Fetching latest benchmark data from GitHub...</p>
+        </div>
+
+        <div id="content" style="display: none;">
+            <div
+                style="display: flex; justify-content: flex-end; gap: 0.75rem; align-items: center; margin-bottom: 0.5rem;">
+                <span id="cache-info" class="time" style="font-size: 0.8rem;"></span>
+                <button id="clear-cache" class="outline contrast" style="padding: 0.15rem 0.5rem; font-size: 0.75rem;">
+                    Force Clear Cache
+                </button>
+            </div>
+            <section id="summary">
+                <h2>Fastest per Operation</h2>
+                <p>Top performing adapters across all tests</p>
+                <div id="summary-cards" class="auto-grid"></div>
+            </section>
+
+            <section id="compare">
+                <h2>Compare Adapters</h2>
+                <p>Select two adapters to see relative performance</p>
+                <div class="grid">
+                    <div>
+                        <label>Base Adapter (1x)
+                            <select id="compare-base"></select>
+                        </label>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <kbd>VS</kbd>
+                    </div>
+                    <div>
+                        <label>Target Adapter
+                            <select id="compare-target"></select>
+                        </label>
+                    </div>
+                </div>
+                <div id="compare-results" class="auto-grid" style="margin-top: 1rem;"></div>
+            </section>
+
+            <hr>
+
+            <section id="tables">
+                <h2>Detailed Results</h2>
+                <label>Select Adapter:
+                    <select id="tables-adapter-select"></select>
+                </label>
+                <div id="tables-container"></div>
+            </section>
+        </div>
+    </main>
+
+    <script type="module" src="index.js"></script>
+</body>
+
+</html>

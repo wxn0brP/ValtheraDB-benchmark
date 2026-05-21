@@ -12,7 +12,8 @@
     "license": "MIT",
     "type": "module",
     "scripts": {
-        "build": "tsc && tsc-alias"
+        "build": "tsc && tsc-alias",
+        "build:page": "bun build src/page/index.ts --outdir public --sourcemap --minify"
     },
     "devDependencies": {
         "@types/bun": "*",
