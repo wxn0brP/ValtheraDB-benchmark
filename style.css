@@ -1,0 +1,127 @@
+:root {
+    --pico-font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+}
+
+.stat-faster {
+    color: var(--pico-form-element-valid-border-color);
+    font-weight: bold;
+}
+
+.stat-slower {
+    color: var(--pico-form-element-invalid-border-color);
+    font-weight: bold;
+}
+
+.stat-equal {
+    color: var(--pico-muted-color);
+}
+
+.time {
+    font-family: monospace;
+    color: var(--pico-muted-color);
+}
+
+.adapter {
+    font-weight: bold;
+}
+
+header.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background-color: var(--pico-background-color);
+    border-bottom: 1px solid var(--pico-muted-border-color);
+    height: 3rem;
+    padding: 0;
+}
+
+header.sticky nav {
+    min-height: 3rem;
+    height: 3rem;
+}
+
+header.sticky nav ul,
+header.sticky nav li {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: auto;
+}
+
+.hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--pico-color);
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 4px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -4px);
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    #nav-links {
+        display: none;
+    }
+
+    #nav-links.open {
+        display: flex;
+        position: fixed;
+        top: 3rem;
+        left: 0;
+        width: 100vw;
+        flex-direction: column;
+        background: var(--pico-background-color);
+        border-bottom: 1px solid var(--pico-muted-border-color);
+        padding: 0.5rem 0;
+        z-index: 98;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #nav-links li {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    #nav-links li:last-child {
+        margin-bottom: 1rem;
+    }
+}
+
+.auto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--pico-spacing);
+}

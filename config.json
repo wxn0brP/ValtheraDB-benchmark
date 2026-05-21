@@ -1,0 +1,8 @@
+{
+    "bin": "Binary",
+    "dir": "Directory",
+    "dir-c": "Directory (C)",
+    "memory": "In-Memory",
+    "sqlite": "SQLite Adapter",
+    "sqlite-better": "Better SQLite3 Adapter"
+}
