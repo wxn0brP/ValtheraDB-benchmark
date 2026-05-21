@@ -77,10 +77,14 @@ export function doCompare(baseA: string, targetA: string) {
             text = `${(1 / ratio).toFixed(2)}x Slower`;
         }
 
-        const betterAdapter = bBest < tBest ? baseA : targetA;
+        let titleText = "Adapters are equal performance-wise";
+        if (statClass !== "stat-equal") {
+            const betterAdapter = bBest < tBest ? baseA : targetA;
+            titleText = `${adapterName(betterAdapter)} is faster`;
+        }
 
         container.innerHTML += `
-            <article style="padding: 1rem; margin-bottom: 0;" title="${adapterName(betterAdapter)} is faster">
+            <article style="padding: 1rem; margin-bottom: 0;" title="${titleText}">
                 <div style="font-family: monospace; font-size: 0.9rem; margin-bottom: 0.5rem;">${op}</div>
                 <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom: 0.5rem;">
                     <span class="time">${fmt(bBest)}</span>
