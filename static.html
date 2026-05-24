@@ -1,0 +1,526 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ValtheraDB Benchmark Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="container sticky">
+        <nav>
+            <ul>
+                <li><strong>ValtheraDB Benchmarks</strong></li>
+            </ul>
+            <ul id="nav-links">
+                <li><a href="#summary">Summary</a></li>
+                <li><a href="#compare">Compare</a></li>
+                <li><a href="#tables">Detailed Tables</a></li>
+            </ul>
+            <button class="hamburger" aria-label="Menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div id="loader" style="text-align: center; margin-top: 10vh; display: none;">
+            <p aria-busy="true">Fetching latest benchmark data from GitHub...</p>
+        </div>
+
+        <div id="content" style="display: block;">
+            <article style="--pico-font-size: 0.85rem; border-left: 6px solid var(--pico-primary);">
+                <strong style="font-size: 1rem;">📌 Notes</strong>
+                <ul style="margin: 0.5rem 0 0; padding-left: 1.25rem;">
+                    <li>All timings are computed as the average of 3 benchmark runs per operation.</li>
+                    <li>
+                        Benchmarks are executed on GitHub Actions runners using default hosted virtual machines.
+                    </li>
+                </ul>
+            </article>
+
+            <button id="clear-cache" class="outline contrast" style="padding: 0.15rem 0.5rem; font-size: 0.75rem; margin-bottom: 10px;">
+                Force Clear Cache
+            </button>
+
+            <section id="summary">
+                <h2>Fastest per Operation</h2>
+                <p>Top performing adapters across all tests</p>
+                <div id="summary-cards" class="auto-grid"><article><header><strong>add-large</strong></header>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥇</span>
+                        <span class="adapter">Binary/24</span> <span class="time">111.01μs</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥈</span>
+                        <span class="adapter">Directory/bun</span> <span class="time">149.05μs</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥉</span>
+                        <span class="adapter">Binary/bun</span> <span class="time">156.76μs</span>
+                    </span>
+                </div></article><article><header><strong>add-small</strong></header>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥇</span>
+                        <span class="adapter">Binary/24</span> <span class="time">119.48μs</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥈</span>
+                        <span class="adapter">Directory/bun</span> <span class="time">143.00μs</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥉</span>
+                        <span class="adapter">Binary/bun, Binary/bun</span> <span class="time">165.48μs</span>
+                    </span>
+                </div></article><article><header><strong>find-paginated-large</strong></header>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥇</span>
+                        <span class="adapter">Directory/bun</span> <span class="time">11.8ms</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥈</span>
+                        <span class="adapter">Directory/24</span> <span class="time">12.8ms</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥉</span>
+                        <span class="adapter">Directory/24</span> <span class="time">22.8ms</span>
+                    </span>
+                </div></article><article><header><strong>find-paginated-small</strong></header>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥇</span>
+                        <span class="adapter">SQLite Adapter/bun</span> <span class="time">3.0ms</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥈</span>
+                        <span class="adapter">SQLite Adapter/bun</span> <span class="time">4.9ms</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥉</span>
+                        <span class="adapter">SQLite Adapter/bun</span> <span class="time">6.6ms</span>
+                    </span>
+                </div></article><article><header><strong>find-search-large</strong></header>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥇</span>
+                        <span class="adapter">SQLite Adapter/bun</span> <span class="time">62.3ms</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥈</span>
+                        <span class="adapter">SQLite Adapter/bun</span> <span class="time">117.4ms</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥉</span>
+                        <span class="adapter">SQLite Adapter/bun</span> <span class="time">152.0ms</span>
+                    </span>
+                </div></article><article><header><strong>find-search-small</strong></header>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥇</span>
+                        <span class="adapter">SQLite Adapter/bun</span> <span class="time">3.0ms</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥈</span>
+                        <span class="adapter">SQLite Adapter/bun</span> <span class="time">4.5ms</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥉</span>
+                        <span class="adapter">SQLite Adapter/24</span> <span class="time">6.0ms</span>
+                    </span>
+                </div></article><article><header><strong>findOne-large</strong></header>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥇</span>
+                        <span class="adapter">Better SQLite3 Adapter/24</span> <span class="time">216.37μs</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥈</span>
+                        <span class="adapter">SQLite Adapter/22</span> <span class="time">228.01μs</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥉</span>
+                        <span class="adapter">SQLite Adapter/24, Better SQLite3 Adapter/22</span> <span class="time">257.15μs</span>
+                    </span>
+                </div></article><article><header><strong>findOne-small</strong></header>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥇</span>
+                        <span class="adapter">SQLite Adapter/24</span> <span class="time">677.79μs</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥈</span>
+                        <span class="adapter">Better SQLite3 Adapter/24</span> <span class="time">728.56μs</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥉</span>
+                        <span class="adapter">SQLite Adapter/24, Better SQLite3 Adapter/24</span> <span class="time">787.06μs</span>
+                    </span>
+                </div></article><article><header><strong>remove-search-large</strong></header>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥇</span>
+                        <span class="adapter">Directory/24</span> <span class="time">345.6ms</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥈</span>
+                        <span class="adapter">SQLite Adapter/bun</span> <span class="time">529.6ms</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥉</span>
+                        <span class="adapter">SQLite Adapter/bun</span> <span class="time">649.2ms</span>
+                    </span>
+                </div></article><article><header><strong>remove-search-small</strong></header>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥇</span>
+                        <span class="adapter">Binary/24</span> <span class="time">74.01μs</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥈</span>
+                        <span class="adapter">Binary/bun</span> <span class="time">117.71μs</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥉</span>
+                        <span class="adapter">Binary/20, Binary/24, Binary/bun</span> <span class="time">178.88μs</span>
+                    </span>
+                </div></article><article><header><strong>removeOne-large</strong></header>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥇</span>
+                        <span class="adapter">SQLite Adapter/24, Better SQLite3 Adapter/24, SQLite Adapter/bun, Better SQLite3 Adapter/22</span> <span class="time">944.83μs</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥈</span>
+                        <span class="adapter">SQLite Adapter/24</span> <span class="time">1.0ms</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥉</span>
+                        <span class="adapter">SQLite Adapter/bun, SQLite Adapter/22</span> <span class="time">1.2ms</span>
+                    </span>
+                </div></article><article><header><strong>removeOne-small</strong></header>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥇</span>
+                        <span class="adapter">Binary/24</span> <span class="time">147.10μs</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥈</span>
+                        <span class="adapter">Binary/bun, Binary/24, Binary/20</span> <span class="time">314.20μs</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥉</span>
+                        <span class="adapter">Binary/22, Binary/24</span> <span class="time">420.27μs</span>
+                    </span>
+                </div></article><article><header><strong>update-search-large</strong></header>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥇</span>
+                        <span class="adapter">Directory/24</span> <span class="time">384.0ms</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥈</span>
+                        <span class="adapter">Directory/24</span> <span class="time">707.4ms</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥉</span>
+                        <span class="adapter">Directory/22</span> <span class="time">757.5ms</span>
+                    </span>
+                </div></article><article><header><strong>update-search-small</strong></header>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥇</span>
+                        <span class="adapter">Binary/24</span> <span class="time">278.90μs</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥈</span>
+                        <span class="adapter">Binary/20</span> <span class="time">332.04μs</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥉</span>
+                        <span class="adapter">Binary/bun</span> <span class="time">367.97μs</span>
+                    </span>
+                </div></article><article><header><strong>updateOne-large</strong></header>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥇</span>
+                        <span class="adapter">SQLite Adapter/bun</span> <span class="time">1.2ms</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥈</span>
+                        <span class="adapter">SQLite Adapter/24, Better SQLite3 Adapter/24, Better SQLite3 Adapter/22</span> <span class="time">1.5ms</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥉</span>
+                        <span class="adapter">SQLite Adapter/22</span> <span class="time">1.7ms</span>
+                    </span>
+                </div></article><article><header><strong>updateOne-small</strong></header>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥇</span>
+                        <span class="adapter">SQLite Adapter/bun</span> <span class="time">1.5ms</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥈</span>
+                        <span class="adapter">SQLite Adapter/24</span> <span class="time">1.7ms</span>
+                    </span>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <span style="display:flex; align-items:center; gap:0.5rem;">
+                        <span>🥉</span>
+                        <span class="adapter">Better SQLite3 Adapter/24, Better SQLite3 Adapter/24</span> <span class="time">2.1ms</span>
+                    </span>
+                </div></article></div>
+            </section>
+
+            <section id="compare">
+                <h2>Compare Adapters</h2>
+                <p>Select two adapters to see relative performance</p>
+                <div class="grid">
+                    <div>
+                        <label>
+                            Base Adapter (1x)
+                            <select id="compare-base"><option value="bin">Binary</option><option value="dir">Directory</option><option value="dir-c">Directory (C)</option><option value="memory">In-Memory</option><option value="sqlite">SQLite Adapter</option><option value="sqlite-better">Better SQLite3 Adapter</option></select>
+                        </label>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <kbd>VS</kbd>
+                    </div>
+                    <div>
+                        <label>
+                            Target Adapter
+                            <select id="compare-target"><option value="bin">Binary</option><option value="dir">Directory</option><option value="dir-c">Directory (C)</option><option value="memory">In-Memory</option><option value="sqlite">SQLite Adapter</option><option value="sqlite-better">Better SQLite3 Adapter</option></select>
+                        </label>
+                    </div>
+                </div>
+                <div id="compare-results" class="auto-grid" style="margin-top: 1rem;">
+            <article style="padding: 1rem; margin-bottom: 0;" title="Binary is faster">
+                <div style="font-family: monospace; font-size: 0.9rem; margin-bottom: 0.5rem;">add-large</div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom: 0.5rem;">
+                    <span class="time">111.01μs</span>
+                    <span class="time">149.05μs</span>
+                </div>
+                <div class="stat-slower" style="font-size: 1.25rem;">1.34x Slower</div>
+            </article>
+        
+            <article style="padding: 1rem; margin-bottom: 0;" title="Binary is faster">
+                <div style="font-family: monospace; font-size: 0.9rem; margin-bottom: 0.5rem;">add-small</div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom: 0.5rem;">
+                    <span class="time">119.48μs</span>
+                    <span class="time">143.00μs</span>
+                </div>
+                <div class="stat-slower" style="font-size: 1.25rem;">1.20x Slower</div>
+            </article>
+        
+            <article style="padding: 1rem; margin-bottom: 0;" title="Directory is faster">
+                <div style="font-family: monospace; font-size: 0.9rem; margin-bottom: 0.5rem;">find-paginated-large</div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom: 0.5rem;">
+                    <span class="time">6.78s</span>
+                    <span class="time">11.8ms</span>
+                </div>
+                <div class="stat-faster" style="font-size: 1.25rem;">573.30x Faster</div>
+            </article>
+        
+            <article style="padding: 1rem; margin-bottom: 0;" title="Directory is faster">
+                <div style="font-family: monospace; font-size: 0.9rem; margin-bottom: 0.5rem;">find-paginated-small</div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom: 0.5rem;">
+                    <span class="time">396.1ms</span>
+                    <span class="time">8.5ms</span>
+                </div>
+                <div class="stat-faster" style="font-size: 1.25rem;">46.50x Faster</div>
+            </article>
+        
+            <article style="padding: 1rem; margin-bottom: 0;" title="Directory is faster">
+                <div style="font-family: monospace; font-size: 0.9rem; margin-bottom: 0.5rem;">find-search-large</div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom: 0.5rem;">
+                    <span class="time">6.85s</span>
+                    <span class="time">281.5ms</span>
+                </div>
+                <div class="stat-faster" style="font-size: 1.25rem;">24.32x Faster</div>
+            </article>
+        
+            <article style="padding: 1rem; margin-bottom: 0;" title="Directory is faster">
+                <div style="font-family: monospace; font-size: 0.9rem; margin-bottom: 0.5rem;">find-search-small</div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom: 0.5rem;">
+                    <span class="time">436.8ms</span>
+                    <span class="time">33.5ms</span>
+                </div>
+                <div class="stat-faster" style="font-size: 1.25rem;">13.05x Faster</div>
+            </article>
+        
+            <article style="padding: 1rem; margin-bottom: 0;" title="Binary is faster">
+                <div style="font-family: monospace; font-size: 0.9rem; margin-bottom: 0.5rem;">findOne-large</div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom: 0.5rem;">
+                    <span class="time">479.12μs</span>
+                    <span class="time">766.50μs</span>
+                </div>
+                <div class="stat-slower" style="font-size: 1.25rem;">1.60x Slower</div>
+            </article>
+        
+            <article style="padding: 1rem; margin-bottom: 0;" title="Binary is faster">
+                <div style="font-family: monospace; font-size: 0.9rem; margin-bottom: 0.5rem;">findOne-small</div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom: 0.5rem;">
+                    <span class="time">910.07μs</span>
+                    <span class="time">1.8ms</span>
+                </div>
+                <div class="stat-slower" style="font-size: 1.25rem;">1.93x Slower</div>
+            </article>
+        
+            <article style="padding: 1rem; margin-bottom: 0;" title="Directory is faster">
+                <div style="font-family: monospace; font-size: 0.9rem; margin-bottom: 0.5rem;">remove-search-large</div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom: 0.5rem;">
+                    <span class="time">6.63s</span>
+                    <span class="time">345.6ms</span>
+                </div>
+                <div class="stat-faster" style="font-size: 1.25rem;">19.18x Faster</div>
+            </article>
+        
+            <article style="padding: 1rem; margin-bottom: 0;" title="Binary is faster">
+                <div style="font-family: monospace; font-size: 0.9rem; margin-bottom: 0.5rem;">remove-search-small</div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom: 0.5rem;">
+                    <span class="time">74.01μs</span>
+                    <span class="time">25.2ms</span>
+                </div>
+                <div class="stat-slower" style="font-size: 1.25rem;">340.88x Slower</div>
+            </article>
+        
+            <article style="padding: 1rem; margin-bottom: 0;" title="Directory is faster">
+                <div style="font-family: monospace; font-size: 0.9rem; margin-bottom: 0.5rem;">removeOne-large</div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom: 0.5rem;">
+                    <span class="time">7.26s</span>
+                    <span class="time">72.3ms</span>
+                </div>
+                <div class="stat-faster" style="font-size: 1.25rem;">100.41x Faster</div>
+            </article>
+        
+            <article style="padding: 1rem; margin-bottom: 0;" title="Binary is faster">
+                <div style="font-family: monospace; font-size: 0.9rem; margin-bottom: 0.5rem;">removeOne-small</div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom: 0.5rem;">
+                    <span class="time">147.10μs</span>
+                    <span class="time">37.2ms</span>
+                </div>
+                <div class="stat-slower" style="font-size: 1.25rem;">253.22x Slower</div>
+            </article>
+        
+            <article style="padding: 1rem; margin-bottom: 0;" title="Directory is faster">
+                <div style="font-family: monospace; font-size: 0.9rem; margin-bottom: 0.5rem;">update-search-large</div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom: 0.5rem;">
+                    <span class="time">15.24s</span>
+                    <span class="time">384.0ms</span>
+                </div>
+                <div class="stat-faster" style="font-size: 1.25rem;">39.70x Faster</div>
+            </article>
+        
+            <article style="padding: 1rem; margin-bottom: 0;" title="Binary is faster">
+                <div style="font-family: monospace; font-size: 0.9rem; margin-bottom: 0.5rem;">update-search-small</div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom: 0.5rem;">
+                    <span class="time">278.90μs</span>
+                    <span class="time">53.3ms</span>
+                </div>
+                <div class="stat-slower" style="font-size: 1.25rem;">190.95x Slower</div>
+            </article>
+        
+            <article style="padding: 1rem; margin-bottom: 0;" title="Directory is faster">
+                <div style="font-family: monospace; font-size: 0.9rem; margin-bottom: 0.5rem;">updateOne-large</div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom: 0.5rem;">
+                    <span class="time">14.81s</span>
+                    <span class="time">91.0ms</span>
+                </div>
+                <div class="stat-faster" style="font-size: 1.25rem;">162.72x Faster</div>
+            </article>
+        
+            <article style="padding: 1rem; margin-bottom: 0;" title="Directory is faster">
+                <div style="font-family: monospace; font-size: 0.9rem; margin-bottom: 0.5rem;">updateOne-small</div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom: 0.5rem;">
+                    <span class="time">797.4ms</span>
+                    <span class="time">30.2ms</span>
+                </div>
+                <div class="stat-faster" style="font-size: 1.25rem;">26.40x Faster</div>
+            </article>
+        </div>
+            </section>
+
+            <hr>
+
+            <section id="tables">
+                <h2>Detailed Results</h2>
+                <label>
+                    Select Adapter:
+                    <select id="tables-adapter-select"><option value="bin">Binary</option><option value="dir">Directory</option><option value="dir-c">Directory (C)</option><option value="memory">In-Memory</option><option value="sqlite">SQLite Adapter</option><option value="sqlite-better">Better SQLite3 Adapter</option><option value="ALL">Show All</option></select>
+                </label>
+                <div id="tables-container"><h3>Binary Adapter</h3><h4>Small Collection (users, 10k)</h4><figure><table class="striped"><thead><tr><th scope="col">Runtime / OS</th><th scope="col">add</th><th scope="col">findOne</th><th scope="col">find-search</th><th scope="col">find-paginated</th><th scope="col">updateOne</th><th scope="col">update-search</th><th scope="col">removeOne</th><th scope="col">remove-search</th></tr></thead><tbody><tr><td>bun / macos-latest</td><td>164.87μs</td><td>1.6ms</td><td>447.3ms</td><td>407.3ms</td><td>951.1ms</td><td>367.97μs</td><td>308.79μs</td><td>117.71μs</td></tr><tr><td>bun / ubuntu-latest</td><td>166.10μs</td><td>1.7ms</td><td>608.2ms</td><td>551.6ms</td><td>1.10s</td><td>442.29μs</td><td>468.48μs</td><td>181.89μs</td></tr><tr><td>bun / windows-latest</td><td>361.16μs</td><td>4.3ms</td><td>1.20s</td><td>1.10s</td><td>2.35s</td><td>549.97μs</td><td>608.43μs</td><td>310.50μs</td></tr><tr><td>node 24 / macos-latest</td><td>119.48μs</td><td>910.07μs</td><td>436.8ms</td><td>396.1ms</td><td>797.4ms</td><td>278.90μs</td><td>147.10μs</td><td>74.01μs</td></tr><tr><td>node 24 / ubuntu-latest</td><td>216.45μs</td><td>1.8ms</td><td>738.4ms</td><td>690.2ms</td><td>1.41s</td><td>757.14μs</td><td>312.99μs</td><td>177.54μs</td></tr><tr><td>node 24 / windows-latest</td><td>429.15μs</td><td>2.0ms</td><td>1.66s</td><td>1.61s</td><td>3.08s</td><td>429.70μs</td><td>428.30μs</td><td>231.03μs</td></tr><tr><td>node 22 / ubuntu-latest</td><td>228.90μs</td><td>2.1ms</td><td>762.5ms</td><td>699.9ms</td><td>1.44s</td><td>814.36μs</td><td>412.25μs</td><td>192.89μs</td></tr><tr><td>node 20 / ubuntu-latest</td><td>216.73μs</td><td>1.5ms</td><td>792.0ms</td><td>715.3ms</td><td>1.45s</td><td>332.04μs</td><td>320.81μs</td><td>177.21μs</td></tr></tbody></table></figure><h4>Large Collection (posts, 200k)</h4><figure><table class="striped"><thead><tr><th scope="col">Runtime / OS</th><th scope="col">add</th><th scope="col">findOne</th><th scope="col">find-search</th><th scope="col">find-paginated</th><th scope="col">updateOne</th><th scope="col">update-search</th><th scope="col">removeOne</th><th scope="col">remove-search</th></tr></thead><tbody><tr><td>bun / macos-latest</td><td>156.76μs</td><td>800.15μs</td><td>8.44s</td><td>7.72s</td><td>16.29s</td><td>16.46s</td><td>8.15s</td><td>7.48s</td></tr><tr><td>bun / ubuntu-latest</td><td>165.79μs</td><td>666.16μs</td><td>11.30s</td><td>11.40s</td><td>21.63s</td><td>22.40s</td><td>11.54s</td><td>11.44s</td></tr><tr><td>bun / windows-latest</td><td>340.24μs</td><td>600.43μs</td><td>24.22s</td><td>22.69s</td><td>48.81s</td><td>53.07s</td><td>27.12s</td><td>26.41s</td></tr><tr><td>node 24 / macos-latest</td><td>111.01μs</td><td>1.0ms</td><td>6.85s</td><td>6.78s</td><td>14.81s</td><td>15.24s</td><td>7.26s</td><td>6.63s</td></tr><tr><td>node 24 / ubuntu-latest</td><td>198.13μs</td><td>520.15μs</td><td>14.50s</td><td>13.99s</td><td>28.47s</td><td>28.51s</td><td>14.83s</td><td>14.29s</td></tr><tr><td>node 24 / windows-latest</td><td>361.07μs</td><td>652.40μs</td><td>28.21s</td><td>26.91s</td><td>53.57s</td><td>55.69s</td><td>27.84s</td><td>23.67s</td></tr><tr><td>node 22 / ubuntu-latest</td><td>201.25μs</td><td>479.12μs</td><td>14.30s</td><td>14.11s</td><td>27.95s</td><td>28.31s</td><td>14.79s</td><td>14.23s</td></tr><tr><td>node 20 / ubuntu-latest</td><td>204.12μs</td><td>486.63μs</td><td>14.81s</td><td>14.38s</td><td>28.52s</td><td>28.90s</td><td>15.26s</td><td>14.79s</td></tr></tbody></table></figure><h3>Directory Adapter</h3><h4>Small Collection (users, 10k)</h4><figure><table class="striped"><thead><tr><th scope="col">Runtime / OS</th><th scope="col">add</th><th scope="col">findOne</th><th scope="col">find-search</th><th scope="col">find-paginated</th><th scope="col">updateOne</th><th scope="col">update-search</th><th scope="col">removeOne</th><th scope="col">remove-search</th></tr></thead><tbody><tr><td>bun / macos-latest</td><td>143.00μs</td><td>2.8ms</td><td>35.2ms</td><td>8.5ms</td><td>391.8ms</td><td>401.1ms</td><td>384.8ms</td><td>317.7ms</td></tr><tr><td>bun / ubuntu-latest</td><td>238.48μs</td><td>4.6ms</td><td>66.8ms</td><td>17.1ms</td><td>793.0ms</td><td>832.4ms</td><td>833.3ms</td><td>714.0ms</td></tr><tr><td>bun / windows-latest</td><td>563.28μs</td><td>8.6ms</td><td>80.4ms</td><td>22.2ms</td><td>900.4ms</td><td>934.2ms</td><td>881.2ms</td><td>770.1ms</td></tr><tr><td>node 24 / macos-latest</td><td>185.38μs</td><td>1.8ms</td><td>33.5ms</td><td>9.6ms</td><td>30.2ms</td><td>53.3ms</td><td>37.2ms</td><td>25.2ms</td></tr><tr><td>node 24 / ubuntu-latest</td><td>271.17μs</td><td>3.1ms</td><td>64.0ms</td><td>25.1ms</td><td>58.7ms</td><td>87.8ms</td><td>62.3ms</td><td>47.1ms</td></tr><tr><td>node 24 / windows-latest</td><td>456.62μs</td><td>3.6ms</td><td>63.9ms</td><td>25.6ms</td><td>79.5ms</td><td>107.0ms</td><td>74.3ms</td><td>60.5ms</td></tr><tr><td>node 22 / ubuntu-latest</td><td>303.46μs</td><td>3.3ms</td><td>70.6ms</td><td>22.1ms</td><td>61.8ms</td><td>89.4ms</td><td>63.4ms</td><td>56.1ms</td></tr><tr><td>node 20 / ubuntu-latest</td><td>273.93μs</td><td>3.1ms</td><td>72.4ms</td><td>22.7ms</td><td>60.7ms</td><td>95.4ms</td><td>66.9ms</td><td>54.4ms</td></tr></tbody></table></figure><h4>Large Collection (posts, 200k)</h4><figure><table class="striped"><thead><tr><th scope="col">Runtime / OS</th><th scope="col">add</th><th scope="col">findOne</th><th scope="col">find-search</th><th scope="col">find-paginated</th><th scope="col">updateOne</th><th scope="col">update-search</th><th scope="col">removeOne</th><th scope="col">remove-search</th></tr></thead><tbody><tr><td>bun / macos-latest</td><td>149.05μs</td><td>963.04μs</td><td>312.3ms</td><td>11.8ms</td><td>931.5ms</td><td>8.04s</td><td>903.5ms</td><td>8.22s</td></tr><tr><td>bun / ubuntu-latest</td><td>254.40μs</td><td>1.8ms</td><td>589.7ms</td><td>24.5ms</td><td>1.70s</td><td>15.95s</td><td>1.71s</td><td>15.52s</td></tr><tr><td>bun / windows-latest</td><td>576.38μs</td><td>1.8ms</td><td>683.3ms</td><td>31.1ms</td><td>1.91s</td><td>18.87s</td><td>1.92s</td><td>17.51s</td></tr><tr><td>node 24 / macos-latest</td><td>183.29μs</td><td>766.50μs</td><td>281.5ms</td><td>12.8ms</td><td>91.0ms</td><td>384.0ms</td><td>72.3ms</td><td>345.6ms</td></tr><tr><td>node 24 / ubuntu-latest</td><td>257.31μs</td><td>931.45μs</td><td>534.3ms</td><td>22.8ms</td><td>118.7ms</td><td>707.4ms</td><td>114.6ms</td><td>671.7ms</td></tr><tr><td>node 24 / windows-latest</td><td>436.35μs</td><td>2.3ms</td><td>626.2ms</td><td>24.9ms</td><td>155.0ms</td><td>1.04s</td><td>151.4ms</td><td>1.01s</td></tr><tr><td>node 22 / ubuntu-latest</td><td>291.16μs</td><td>1.4ms</td><td>598.4ms</td><td>27.3ms</td><td>148.8ms</td><td>757.5ms</td><td>123.8ms</td><td>696.3ms</td></tr><tr><td>node 20 / ubuntu-latest</td><td>265.22μs</td><td>957.27μs</td><td>634.5ms</td><td>30.1ms</td><td>131.3ms</td><td>773.9ms</td><td>128.7ms</td><td>735.9ms</td></tr></tbody></table></figure><h3>Directory (C) Adapter</h3><h4>Small Collection (users, 10k)</h4><figure><table class="striped"><thead><tr><th scope="col">Runtime / OS</th><th scope="col">add</th><th scope="col">findOne</th><th scope="col">find-search</th><th scope="col">find-paginated</th><th scope="col">updateOne</th><th scope="col">update-search</th><th scope="col">removeOne</th><th scope="col">remove-search</th></tr></thead><tbody><tr><td>bun / ubuntu-latest</td><td>203.35μs</td><td>1.1ms</td><td>27.6ms</td><td>26.9ms</td><td>738.0ms</td><td>772.7ms</td><td>764.6ms</td><td>648.6ms</td></tr></tbody></table></figure><h4>Large Collection (posts, 200k)</h4><figure><table class="striped"><thead><tr><th scope="col">Runtime / OS</th><th scope="col">add</th><th scope="col">findOne</th><th scope="col">find-search</th><th scope="col">find-paginated</th><th scope="col">updateOne</th><th scope="col">update-search</th><th scope="col">removeOne</th><th scope="col">remove-search</th></tr></thead><tbody><tr><td>bun / ubuntu-latest</td><td>220.71μs</td><td>107.0ms</td><td>345.8ms</td><td>430.2ms</td><td>1.64s</td><td>15.16s</td><td>1.58s</td><td>14.36s</td></tr></tbody></table></figure><h3>In-Memory Adapter</h3><h4>Small Collection (users, 10k)</h4><figure><table class="striped"><thead><tr><th scope="col">Runtime / OS</th><th scope="col">add</th><th scope="col">findOne</th><th scope="col">find-search</th><th scope="col">find-paginated</th><th scope="col">updateOne</th><th scope="col">update-search</th><th scope="col">removeOne</th><th scope="col">remove-search</th></tr></thead><tbody><tr><td>bun / macos-latest</td><td>12.36μs</td><td>1.1ms</td><td>33.2ms</td><td>1.0ms</td><td>12.4ms</td><td>33.9ms</td><td>23.9ms</td><td>15.2ms</td></tr><tr><td>bun / ubuntu-latest</td><td>13.23μs</td><td>1.4ms</td><td>51.9ms</td><td>1.5ms</td><td>19.2ms</td><td>49.8ms</td><td>37.5ms</td><td>26.5ms</td></tr><tr><td>bun / windows-latest</td><td>15.14μs</td><td>1.3ms</td><td>76.8ms</td><td>3.2ms</td><td>33.3ms</td><td>76.4ms</td><td>57.5ms</td><td>41.1ms</td></tr><tr><td>node 24 / macos-latest</td><td>11.74μs</td><td>498.04μs</td><td>31.5ms</td><td>1.2ms</td><td>18.5ms</td><td>51.5ms</td><td>28.2ms</td><td>15.1ms</td></tr><tr><td>node 24 / ubuntu-latest</td><td>13.19μs</td><td>736.37μs</td><td>37.7ms</td><td>2.1ms</td><td>27.9ms</td><td>59.0ms</td><td>43.7ms</td><td>22.8ms</td></tr><tr><td>node 24 / windows-latest</td><td>14.86μs</td><td>1.0ms</td><td>49.9ms</td><td>2.6ms</td><td>30.1ms</td><td>74.3ms</td><td>48.7ms</td><td>31.9ms</td></tr><tr><td>node 22 / ubuntu-latest</td><td>15.22μs</td><td>796.76μs</td><td>49.5ms</td><td>2.0ms</td><td>26.9ms</td><td>71.3ms</td><td>46.0ms</td><td>24.6ms</td></tr><tr><td>node 20 / ubuntu-latest</td><td>14.40μs</td><td>750.79μs</td><td>52.9ms</td><td>2.3ms</td><td>28.4ms</td><td>72.8ms</td><td>43.0ms</td><td>31.3ms</td></tr></tbody></table></figure><h4>Large Collection (posts, 200k)</h4><figure><table class="striped"><thead><tr><th scope="col">Runtime / OS</th><th scope="col">add</th><th scope="col">findOne</th><th scope="col">find-search</th><th scope="col">find-paginated</th><th scope="col">updateOne</th><th scope="col">update-search</th><th scope="col">removeOne</th><th scope="col">remove-search</th></tr></thead><tbody><tr><td>bun / macos-latest</td><td>12.72μs</td><td>224.19μs</td><td>261.7ms</td><td>5.6ms</td><td>284.9ms</td><td>236.6ms</td><td>538.4ms</td><td>235.3ms</td></tr><tr><td>bun / ubuntu-latest</td><td>13.26μs</td><td>344.69μs</td><td>455.5ms</td><td>14.1ms</td><td>405.2ms</td><td>407.3ms</td><td>765.0ms</td><td>356.2ms</td></tr><tr><td>bun / windows-latest</td><td>14.46μs</td><td>305.80μs</td><td>525.0ms</td><td>13.9ms</td><td>483.6ms</td><td>462.8ms</td><td>938.4ms</td><td>416.9ms</td></tr><tr><td>node 24 / macos-latest</td><td>12.26μs</td><td>189.33μs</td><td>189.3ms</td><td>8.7ms</td><td>260.9ms</td><td>190.1ms</td><td>536.3ms</td><td>164.6ms</td></tr><tr><td>node 24 / ubuntu-latest</td><td>12.27μs</td><td>214.31μs</td><td>277.0ms</td><td>12.0ms</td><td>325.2ms</td><td>280.8ms</td><td>661.3ms</td><td>255.2ms</td></tr><tr><td>node 24 / windows-latest</td><td>13.11μs</td><td>297.17μs</td><td>408.7ms</td><td>14.2ms</td><td>415.3ms</td><td>410.4ms</td><td>852.5ms</td><td>381.0ms</td></tr><tr><td>node 22 / ubuntu-latest</td><td>12.04μs</td><td>206.93μs</td><td>303.6ms</td><td>12.6ms</td><td>338.1ms</td><td>296.3ms</td><td>681.4ms</td><td>270.7ms</td></tr><tr><td>node 20 / ubuntu-latest</td><td>12.09μs</td><td>202.22μs</td><td>314.4ms</td><td>12.5ms</td><td>364.6ms</td><td>311.8ms</td><td>726.1ms</td><td>287.8ms</td></tr></tbody></table></figure><h3>SQLite Adapter Adapter</h3><h4>Small Collection (users, 10k)</h4><figure><table class="striped"><thead><tr><th scope="col">Runtime / OS</th><th scope="col">add</th><th scope="col">findOne</th><th scope="col">find-search</th><th scope="col">find-paginated</th><th scope="col">updateOne</th><th scope="col">update-search</th><th scope="col">removeOne</th><th scope="col">remove-search</th></tr></thead><tbody><tr><td>bun / macos-latest</td><td>372.00μs</td><td>1.5ms</td><td>3.0ms</td><td>3.0ms</td><td>1.5ms</td><td>1.17s</td><td>988.96μs</td><td>23.6ms</td></tr><tr><td>bun / ubuntu-latest</td><td>696.29μs</td><td>2.2ms</td><td>6.3ms</td><td>6.6ms</td><td>2.5ms</td><td>2.21s</td><td>1.6ms</td><td>34.0ms</td></tr><tr><td>bun / windows-latest</td><td>869.63μs</td><td>1.9ms</td><td>4.5ms</td><td>4.9ms</td><td>2.2ms</td><td>2.92s</td><td>1.7ms</td><td>38.0ms</td></tr><tr><td>node 24 / macos-latest</td><td>386.54μs</td><td>677.79μs</td><td>6.0ms</td><td>8.7ms</td><td>1.7ms</td><td>1.22s</td><td>843.28μs</td><td>28.2ms</td></tr><tr><td>node 24 / ubuntu-latest</td><td>616.79μs</td><td>776.62μs</td><td>9.5ms</td><td>14.7ms</td><td>4.0ms</td><td>1.97s</td><td>1.1ms</td><td>39.4ms</td></tr><tr><td>node 24 / windows-latest</td><td>1.7ms</td><td>1.2ms</td><td>10.7ms</td><td>16.8ms</td><td>4.4ms</td><td>5.43s</td><td>2.2ms</td><td>70.9ms</td></tr><tr><td>node 22 / ubuntu-latest</td><td>995.93μs</td><td>868.50μs</td><td>12.3ms</td><td>18.1ms</td><td>2.3ms</td><td>3.21s</td><td>1.3ms</td><td>52.5ms</td></tr></tbody></table></figure><h4>Large Collection (posts, 200k)</h4><figure><table class="striped"><thead><tr><th scope="col">Runtime / OS</th><th scope="col">add</th><th scope="col">findOne</th><th scope="col">find-search</th><th scope="col">find-paginated</th><th scope="col">updateOne</th><th scope="col">update-search</th><th scope="col">removeOne</th><th scope="col">remove-search</th></tr></thead><tbody><tr><td>bun / macos-latest</td><td>368.29μs</td><td>697.64μs</td><td>62.3ms</td><td>55.6ms</td><td>1.2ms</td><td>70.47s</td><td>961.89μs</td><td>529.6ms</td></tr><tr><td>bun / ubuntu-latest</td><td>673.15μs</td><td>478.92μs</td><td>152.0ms</td><td>132.3ms</td><td>2.0ms</td><td>127.60s</td><td>1.2ms</td><td>649.2ms</td></tr><tr><td>bun / windows-latest</td><td>885.21μs</td><td>528.10μs</td><td>117.4ms</td><td>105.6ms</td><td>2.0ms</td><td>167.91s</td><td>1.4ms</td><td>799.1ms</td></tr><tr><td>node 24 / macos-latest</td><td>424.71μs</td><td>1.2ms</td><td>274.2ms</td><td>321.3ms</td><td>3.8ms</td><td>70.78s</td><td>1.0ms</td><td>702.6ms</td></tr><tr><td>node 24 / ubuntu-latest</td><td>599.76μs</td><td>252.62μs</td><td>366.7ms</td><td>327.3ms</td><td>1.5ms</td><td>116.81s</td><td>901.19μs</td><td>850.7ms</td></tr><tr><td>node 24 / windows-latest</td><td>1.6ms</td><td>644.20μs</td><td>391.3ms</td><td>405.4ms</td><td>2.8ms</td><td>324.94s</td><td>2.2ms</td><td>1.68s</td></tr><tr><td>node 22 / ubuntu-latest</td><td>969.02μs</td><td>228.01μs</td><td>459.8ms</td><td>360.2ms</td><td>1.7ms</td><td>189.93s</td><td>1.2ms</td><td>1.07s</td></tr></tbody></table></figure><h3>Better SQLite3 Adapter Adapter</h3><h4>Small Collection (users, 10k)</h4><figure><table class="striped"><thead><tr><th scope="col">Runtime / OS</th><th scope="col">add</th><th scope="col">findOne</th><th scope="col">find-search</th><th scope="col">find-paginated</th><th scope="col">updateOne</th><th scope="col">update-search</th><th scope="col">removeOne</th><th scope="col">remove-search</th></tr></thead><tbody><tr><td>node 24 / macos-latest</td><td>506.95μs</td><td>728.56μs</td><td>6.8ms</td><td>7.2ms</td><td>2.1ms</td><td>1.80s</td><td>969.29μs</td><td>43.2ms</td></tr><tr><td>node 24 / ubuntu-latest</td><td>663.28μs</td><td>797.51μs</td><td>7.9ms</td><td>9.5ms</td><td>2.0ms</td><td>2.08s</td><td>1.2ms</td><td>38.1ms</td></tr><tr><td>node 24 / windows-latest</td><td>1.7ms</td><td>995.33μs</td><td>8.4ms</td><td>10.9ms</td><td>3.1ms</td><td>5.33s</td><td>3.4ms</td><td>69.4ms</td></tr><tr><td>node 22 / ubuntu-latest</td><td>689.03μs</td><td>931.39μs</td><td>8.8ms</td><td>9.3ms</td><td>2.2ms</td><td>2.15s</td><td>1.1ms</td><td>34.0ms</td></tr></tbody></table></figure><h4>Large Collection (posts, 200k)</h4><figure><table class="striped"><thead><tr><th scope="col">Runtime / OS</th><th scope="col">add</th><th scope="col">findOne</th><th scope="col">find-search</th><th scope="col">find-paginated</th><th scope="col">updateOne</th><th scope="col">update-search</th><th scope="col">removeOne</th><th scope="col">remove-search</th></tr></thead><tbody><tr><td>node 24 / macos-latest</td><td>533.65μs</td><td>647.85μs</td><td>200.6ms</td><td>227.9ms</td><td>2.7ms</td><td>99.26s</td><td>1.4ms</td><td>900.6ms</td></tr><tr><td>node 24 / ubuntu-latest</td><td>637.11μs</td><td>216.37μs</td><td>204.9ms</td><td>231.0ms</td><td>1.5ms</td><td>124.50s</td><td>942.17μs</td><td>793.3ms</td></tr><tr><td>node 24 / windows-latest</td><td>1.6ms</td><td>592.70μs</td><td>243.2ms</td><td>237.7ms</td><td>2.9ms</td><td>320.74s</td><td>2.3ms</td><td>1.59s</td></tr><tr><td>node 22 / ubuntu-latest</td><td>642.49μs</td><td>261.68μs</td><td>400.0ms</td><td>308.1ms</td><td>1.5ms</td><td>125.38s</td><td>974.09μs</td><td>813.5ms</td></tr></tbody></table></figure></div>
+            </section>
+        </div>
+    </main>
+
+    <script type="module" src="index.js"></script>
+
+
+
+</body></html>
