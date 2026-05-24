@@ -10,3 +10,4 @@ bun.lock
 
 public/*.js
 public/*.js.map
+static.html
