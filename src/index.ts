@@ -56,3 +56,4 @@ if (existsSync(resultFile)) {
 }
 
 writeFileSync(resultFile, JSON.stringify(results, null, 2));
+setTimeout(() => process.exit(0), 3000).unref(); // exit force after 3 seconds
