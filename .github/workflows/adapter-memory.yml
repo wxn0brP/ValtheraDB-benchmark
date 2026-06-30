@@ -12,6 +12,7 @@ on:
 jobs:
   run-benchmark:
     strategy:
+      max-parallel: 4
       matrix:
         include:
           - ver: "bun"
@@ -33,7 +34,7 @@ jobs:
 
     uses: ./.github/workflows/run-single.yml
     with:
-      opts: '[]'
+      opts: "[]"
       adapter: "memory"
       ver: ${{ matrix.ver }}
       os: ${{ matrix.os }}

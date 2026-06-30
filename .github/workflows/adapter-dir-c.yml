@@ -12,6 +12,7 @@ on:
 jobs:
   run-benchmark:
     strategy:
+      max-parallel: 4
       matrix:
         include:
           - ver: "bun"
