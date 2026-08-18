@@ -54,6 +54,18 @@
                 Force Clear Cache
             </button>
 
+            <section id="local-results">
+                <h3>Local Results</h3>
+                <p style="font-size: 0.9rem; color: var(--pico-muted-color);">Upload a local benchmark result JSON file to include it in the analysis.</p>
+                <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+                    <input type="file" id="local-file-input" accept=".json" style="margin: 0;">
+                    <button id="upload-local-btn" class="outline" style="margin: 0;">Upload</button>
+                </div>
+                <div id="local-results-list"></div>
+            </section>
+
+            <hr>
+
             <section id="summary">
                 <h2>Fastest per Operation</h2>
                 <p>Top performing adapters across all tests</p>
@@ -77,6 +89,20 @@
                         <label>
                             Target Adapter
                             <select id="compare-target"></select>
+                        </label>
+                    </div>
+                </div>
+                <div class="grid" id="compare-platforms-row" style="margin-top: 0.5rem;">
+                    <div>
+                        <label>
+                            Base Platforms (select to filter)
+                            <select id="compare-base-platforms" multiple size="5"></select>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Target Platforms (select to filter)
+                            <select id="compare-target-platforms" multiple size="5"></select>
                         </label>
                     </div>
                 </div>

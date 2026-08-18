@@ -1,5 +1,6 @@
 import { clearCache, loadFromCache, saveToCache } from "./cache";
 import { renderCompare } from "./compare";
+import { addLocalResult, loadLocalResultsIntoState, renderLocalResultsList } from "./local";
 import { renderSummary } from "./summary";
 import { renderTables } from "./tables";
 import { ResultFile } from "./types";
@@ -11,11 +12,13 @@ async function loadData() {
 	if (cached) {
 		state.adapterConfig = cached.adapterConfig;
 		state.entries = cached.entries;
+		loadLocalResultsIntoState();
 		document.querySelector<HTMLDivElement>("#loader").style.display = "none";
 		document.querySelector<HTMLDivElement>("#content").style.display = "block";
 		renderSummary();
 		renderCompare();
 		renderTables();
+		renderLocalResultsList();
 		return;
 	}
 
@@ -47,6 +50,7 @@ async function loadData() {
 		});
 
 		state.entries = await Promise.all(fetchPromises);
+		loadLocalResultsIntoState();
 		saveToCache();
 
 		document.querySelector<HTMLDivElement>("#loader").style.display = "none";
@@ -55,6 +59,7 @@ async function loadData() {
 		renderSummary();
 		renderCompare();
 		renderTables();
+		renderLocalResultsList();
 	} catch (e) {
 		console.error("Failed to load data", e);
 		document.querySelector("#loader").innerHTML =
@@ -82,5 +87,21 @@ navLinks.querySelectorAll("a").forEach(link => {
 document
 	.querySelector<HTMLButtonElement>("#clear-cache")
 	?.addEventListener("click", clearCache);
+
+document
+	.querySelector<HTMLButtonElement>("#upload-local-btn")
+	?.addEventListener("click", async () => {
+		const input = document.querySelector<HTMLInputElement>("#local-file-input");
+		if (!input?.files?.length) {
+			alert("Please select a file first");
+			return;
+		}
+		const file = input.files[0];
+		const success = await addLocalResult(file);
+		if (success) {
+			input.value = "";
+			renderLocalResultsList();
+		}
+	});
 
 loadData();
