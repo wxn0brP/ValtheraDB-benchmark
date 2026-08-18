@@ -17,11 +17,12 @@
     },
     "devDependencies": {
         "@types/bun": "*",
+        "@wxn0brp/biome": "*",
         "tsc-alias": "^1",
-        "typescript": "^6"
+        "typescript": "^7"
     },
     "dependencies": {
-        "@wxn0brp/db-core": "^0.11.0",
-        "@wxn0brp/db-resolver": "^0.110.0"
+        "@wxn0brp/db-core": "^0.11.6",
+        "@wxn0brp/db-resolver": "^0.111.1"
     }
 }

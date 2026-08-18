@@ -1,6 +1,6 @@
 export async function init(action: any) {
-    const schemas = [
-        `
+	const schemas = [
+		`
 CREATE TABLE IF NOT EXISTS users (
     _id TEXT PRIMARY KEY,
     name TEXT,
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS users (
     isActive INTEGER,
     createdAt INTEGER
 )`,
-        `
+		`
 CREATE TABLE IF NOT EXISTS posts (
     _id TEXT PRIMARY KEY,
     title TEXT,
@@ -17,10 +17,10 @@ CREATE TABLE IF NOT EXISTS posts (
     views INTEGER,
     createdAt INTEGER
 )`,
-    ];
+	];
 
-    for (const sql of schemas) {
-        const stmt = await action._prepare(sql);
-        await stmt.run();
-    }
+	for (const sql of schemas) {
+		const stmt = await action._prepare(sql);
+		await stmt.run();
+	}
 }
