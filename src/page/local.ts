@@ -15,17 +15,27 @@ interface LocalStorageData {
 function getLocalData(): LocalStorageData {
 	try {
 		const raw = localStorage.getItem(LOCAL_KEY);
-		if (!raw) return { entries: [], adapterNames: {} };
+		if (!raw)
+			return {
+				entries: [],
+				adapterNames: {},
+			};
 		const parsed = JSON.parse(raw);
 		if (Array.isArray(parsed)) {
-			return { entries: parsed, adapterNames: {} };
+			return {
+				entries: parsed,
+				adapterNames: {},
+			};
 		}
 		return {
 			entries: parsed.entries || [],
 			adapterNames: parsed.adapterNames || {},
 		};
 	} catch {
-		return { entries: [], adapterNames: {} };
+		return {
+			entries: [],
+			adapterNames: {},
+		};
 	}
 }
 
@@ -82,7 +92,7 @@ export async function addLocalResult(file: File): Promise<boolean> {
 		};
 
 		const locals = getLocalResults();
-		const existing = locals.findIndex((e) => e.dir === dir);
+		const existing = locals.findIndex(e => e.dir === dir);
 		if (existing >= 0) {
 			locals[existing] = entry;
 		} else {
@@ -106,10 +116,10 @@ export async function addLocalResult(file: File): Promise<boolean> {
 
 export function removeLocalResult(dir: string) {
 	const locals = getLocalResults();
-	const filtered = locals.filter((e) => e.dir !== dir);
+	const filtered = locals.filter(e => e.dir !== dir);
 	saveLocalResults(filtered);
 
-	state.entries = state.entries.filter((e) => e.dir !== dir);
+	state.entries = state.entries.filter(e => e.dir !== dir);
 
 	renderSummary();
 	renderCompare();
@@ -117,18 +127,22 @@ export function removeLocalResult(dir: string) {
 }
 
 export function renderLocalResultsList() {
-	const container = document.querySelector<HTMLDivElement>("#local-results-list");
+	const container = document.querySelector<HTMLDivElement>(
+		"#local-results-list",
+	);
 	if (!container) return;
 
 	const locals = getLocalResults();
 	if (!locals.length) {
-		container.innerHTML = "<p style='color: var(--pico-muted-color); font-size: 0.9rem;'>No local results loaded</p>";
+		container.innerHTML =
+			"<p style='color: var(--pico-muted-color); font-size: 0.9rem;'>No local results loaded</p>";
 		return;
 	}
 
 	let html = "";
 	for (const entry of locals) {
-		const adapterName = state.adapterConfig[entry.info.adapter] || entry.info.adapter;
+		const adapterName =
+			state.adapterConfig[entry.info.adapter] || entry.info.adapter;
 		const runtime = entry.info.ver === "bun" ? "bun" : `node ${entry.info.ver}`;
 		html += `
 			<div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem; margin-bottom: 0.5rem; background: var(--pico-muted-border-color); border-radius: 4px;">
@@ -145,7 +159,7 @@ export function renderLocalResultsList() {
 
 	container.innerHTML = html;
 
-	container.querySelectorAll("button[data-dir]").forEach((btn) => {
+	container.querySelectorAll("button[data-dir]").forEach(btn => {
 		btn.addEventListener("click", () => {
 			const dir = btn.getAttribute("data-dir");
 			if (dir) {
@@ -158,13 +172,13 @@ export function renderLocalResultsList() {
 
 export function loadLocalResultsIntoState() {
 	const localData = getLocalData();
-	
+
 	for (const [adapterId, name] of Object.entries(localData.adapterNames)) {
 		state.adapterConfig[adapterId] = name;
 	}
-	
+
 	for (const local of localData.entries) {
-		const existing = state.entries.findIndex((e) => e.dir === local.dir);
+		const existing = state.entries.findIndex(e => e.dir === local.dir);
 		if (existing >= 0) {
 			state.entries[existing] = local;
 		} else {

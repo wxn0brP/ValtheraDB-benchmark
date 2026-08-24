@@ -1,6 +1,10 @@
 import { clearCache, loadFromCache, saveToCache } from "./cache";
 import { renderCompare } from "./compare";
-import { addLocalResult, loadLocalResultsIntoState, renderLocalResultsList } from "./local";
+import {
+	addLocalResult,
+	loadLocalResultsIntoState,
+	renderLocalResultsList,
+} from "./local";
 import { renderSummary } from "./summary";
 import { renderTables } from "./tables";
 import { ResultFile } from "./types";
