@@ -23,4 +23,19 @@ CREATE TABLE IF NOT EXISTS posts (
 		const stmt = await action._prepare(sql);
 		await stmt.run();
 	}
+
+	await action
+		._prepare(
+			"CREATE INDEX IF NOT EXISTS idx_users_isActive ON users(isActive)",
+		)
+		.then(s => s.run());
+	await action
+		._prepare("CREATE INDEX IF NOT EXISTS idx_users_age ON users(age)")
+		.then(s => s.run());
+}
+
+export async function onAfterAdd(action: any) {
+	await action
+		._prepare("CREATE INDEX IF NOT EXISTS idx_posts_views ON posts(views)")
+		.then(s => s.run());
 }

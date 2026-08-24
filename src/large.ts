@@ -4,7 +4,10 @@ import { bench, type BenchResult } from "./run";
 
 const COUNT = 200_000;
 
-export async function benchmarkLarge(col: Collection): Promise<BenchResult[]> {
+export async function benchmarkLarge(
+	col: Collection,
+	onAfterAdd?: () => Promise<void>,
+): Promise<BenchResult[]> {
 	const results: BenchResult[] = [];
 	const postData = generatePosts(COUNT);
 	const ids: string[] = [];
@@ -24,6 +27,8 @@ export async function benchmarkLarge(col: Collection): Promise<BenchResult[]> {
 			COUNT,
 		),
 	);
+
+	if (onAfterAdd) await onAfterAdd();
 
 	const firstId = ids[0];
 	const midId = ids[Math.floor(ids.length / 2)];

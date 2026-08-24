@@ -19,12 +19,25 @@ const adapterName = process.env.VALTHERA_MASTER || "";
 
 const [pkg] = adapterName.split(":");
 const setupPath = resolve(import.meta.dirname, "custom", `${pkg}.js`);
+
+let onAfterAdd = async () => {};
+
 if (existsSync(setupPath)) {
 	console.log(`-> Using custom setup for ${pkg}`);
 	const mod = await import("./custom/" + pkg + ".js");
-	if (typeof mod.init === "function") await mod.init(db.adapter);
-	else console.log(`-> No init function found for ${pkg}`);
-} else console.log(`-> No custom setup found for ${pkg}`);
+
+	if (typeof mod.init === "function") {
+		await mod.init(db.adapter);
+	} else {
+		console.log(`-> No init function found for ${pkg}`);
+	}
+
+	if (typeof mod.onAfterAdd === "function") {
+		onAfterAdd = () => mod.onAfterAdd(db.adapter);
+	}
+} else {
+	console.log(`-> No custom setup found for ${pkg}`);
+}
 
 const allResults: BenchResult[] = [];
 const resultFile = "result.json";
@@ -34,7 +47,7 @@ const smallResults = await benchmarkSmall(db.c("users"));
 allResults.push(...smallResults);
 
 console.log("large collection (posts, 200k)");
-const largeResults = await benchmarkLarge(db.c("posts"));
+const largeResults = await benchmarkLarge(db.c("posts"), onAfterAdd);
 allResults.push(...largeResults);
 
 const results = {
