@@ -39,7 +39,7 @@ jobs:
       adapter: "dir-index"
       ver: ${{ matrix.ver }}
       os: ${{ matrix.os }}
-      install: "@wxn0brp/db-storage-dir-index"
+      install: "@wxn0brp/db-storage-dir-index json5"
       setup: ""
     secrets: inherit
 
