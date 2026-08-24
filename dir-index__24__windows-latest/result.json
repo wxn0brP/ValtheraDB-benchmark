@@ -1,0 +1,202 @@
+{
+  "time": "2026-08-24T18:18:54.523Z",
+  "os": "win32",
+  "arch": "x64",
+  "node": "v24.19.0",
+  "bun": "N/A",
+  "adapter": "dir-index",
+  "results": [
+    {
+      "name": "add-small",
+      "time": 2.62484408
+    },
+    {
+      "name": "findOne-small",
+      "time": 4.424399999999878
+    },
+    {
+      "name": "find-search-small",
+      "time": 240.90130000000136
+    },
+    {
+      "name": "find-paginated-small",
+      "time": 190.3021000000008
+    },
+    {
+      "name": "updateOne-small",
+      "time": 331.6535999999978
+    },
+    {
+      "name": "update-search-small",
+      "time": 8313.508999999998
+    },
+    {
+      "name": "removeOne-small",
+      "time": 186.07710000000225
+    },
+    {
+      "name": "remove-search-small",
+      "time": 200.5737999999983
+    },
+    {
+      "name": "add-large",
+      "time": 10.625812821
+    },
+    {
+      "name": "findOne-large",
+      "time": 1.3580999998375773
+    },
+    {
+      "name": "find-search-large",
+      "time": 3005.409599999897
+    },
+    {
+      "name": "find-paginated-large",
+      "time": 361.39140000008047
+    },
+    {
+      "name": "updateOne-large",
+      "time": 1935.8204000000842
+    },
+    {
+      "name": "update-search-large",
+      "time": 10147.726299999747
+    },
+    {
+      "name": "removeOne-large",
+      "time": 381.39999999990687
+    },
+    {
+      "name": "remove-search-large",
+      "time": 3345.465099999681
+    },
+    {
+      "name": "add-small",
+      "time": 2.5545093199999998
+    },
+    {
+      "name": "findOne-small",
+      "time": 4.3738999999986845
+    },
+    {
+      "name": "find-search-small",
+      "time": 238.01929999999993
+    },
+    {
+      "name": "find-paginated-small",
+      "time": 192.6758000000009
+    },
+    {
+      "name": "updateOne-small",
+      "time": 325.95520000000033
+    },
+    {
+      "name": "update-search-small",
+      "time": 8276.401400000002
+    },
+    {
+      "name": "removeOne-small",
+      "time": 198.2289000000019
+    },
+    {
+      "name": "remove-search-small",
+      "time": 238.02509999999893
+    },
+    {
+      "name": "add-large",
+      "time": 10.116835556
+    },
+    {
+      "name": "findOne-large",
+      "time": 1.073100000154227
+    },
+    {
+      "name": "find-search-large",
+      "time": 3065.7924999999814
+    },
+    {
+      "name": "find-paginated-large",
+      "time": 355.04000000003725
+    },
+    {
+      "name": "updateOne-large",
+      "time": 1946.8591000000015
+    },
+    {
+      "name": "update-search-large",
+      "time": 9815.16550000012
+    },
+    {
+      "name": "removeOne-large",
+      "time": 391.2970000000205
+    },
+    {
+      "name": "remove-search-large",
+      "time": 3547.6830000001937
+    },
+    {
+      "name": "add-small",
+      "time": 2.56001656
+    },
+    {
+      "name": "findOne-small",
+      "time": 4.394700000000739
+    },
+    {
+      "name": "find-search-small",
+      "time": 234.71849999999904
+    },
+    {
+      "name": "find-paginated-small",
+      "time": 191.33629999999903
+    },
+    {
+      "name": "updateOne-small",
+      "time": 321.7452000000012
+    },
+    {
+      "name": "update-search-small",
+      "time": 8268.7771
+    },
+    {
+      "name": "removeOne-small",
+      "time": 189.94959999999992
+    },
+    {
+      "name": "remove-search-small",
+      "time": 207.0743999999977
+    },
+    {
+      "name": "add-large",
+      "time": 10.20641236
+    },
+    {
+      "name": "findOne-large",
+      "time": 1.0461999999824911
+    },
+    {
+      "name": "find-search-large",
+      "time": 3045.406799999997
+    },
+    {
+      "name": "find-paginated-large",
+      "time": 350.4421999999322
+    },
+    {
+      "name": "updateOne-large",
+      "time": 1924.8214000000153
+    },
+    {
+      "name": "update-search-large",
+      "time": 10218.3918000001
+    },
+    {
+      "name": "removeOne-large",
+      "time": 386.0594999999739
+    },
+    {
+      "name": "remove-search-large",
+      "time": 3467.8329000000376
+    }
+  ]
+}
