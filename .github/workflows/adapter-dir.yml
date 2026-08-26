@@ -38,7 +38,7 @@ jobs:
       adapter: "dir"
       ver: ${{ matrix.ver }}
       os: ${{ matrix.os }}
-      install: ""
+      install: "json5"
       setup: ""
     secrets: inherit
 
