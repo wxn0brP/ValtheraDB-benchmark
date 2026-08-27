@@ -10,14 +10,14 @@ on:
         default: false
 
 jobs:
-  adapter-bin:
-    uses: ./.github/workflows/adapter-bin.yml
-    with:
-      skip_commit: ${{ inputs.skip_commit }}
+  # adapter-bin:
+  #   uses: ./.github/workflows/adapter-bin.yml
+  #   with:
+  #     skip_commit: ${{ inputs.skip_commit }}
 
   adapter-dir:
-    needs: adapter-bin
-    if: always()
+    # needs: adapter-bin
+    # if: always()
     uses: ./.github/workflows/adapter-dir.yml
     with:
       skip_commit: ${{ inputs.skip_commit }}
