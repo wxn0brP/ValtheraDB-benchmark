@@ -57,6 +57,8 @@ const results = {
 	node: process?.version,
 	bun: globalThis.Bun?.version || "N/A",
 	adapter: process.env.VALTHERA_MASTER,
+	coreVersion: db.version,
+	adapterVersion: db.adapter?.version || "N/A",
 	results: allResults,
 };
 

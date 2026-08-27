@@ -9,6 +9,8 @@ export interface ResultFile {
 	node?: string;
 	bun?: string;
 	adapter?: string;
+	coreVersion?: string;
+	adapterVersion?: string;
 	results: BenchResult[];
 }
 

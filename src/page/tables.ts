@@ -53,7 +53,13 @@ export function renderTables(selectedAdapter: string = null) {
 			return a.info.os.localeCompare(b.info.os);
 		});
 
-		html += `<h3>${adapterName(adapter)} Adapter</h3>`;
+		const firstEntry = group[0];
+		const coreVer = firstEntry?.data.coreVersion;
+		const adapterVer = firstEntry?.data.adapterVersion;
+		const versionLine = coreVer
+			? `<p>core: ${coreVer}${adapterVer ? ` | adapter: ${adapterVer}` : ""}</p>`
+			: "";
+		html += `<h3>${adapterName(adapter)} Adapter</h3>${versionLine}`;
 
 		const sections: [
 			string,
