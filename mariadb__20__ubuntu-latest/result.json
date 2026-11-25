@@ -1,0 +1,204 @@
+{
+  "time": "2026-11-25T19:50:38.573Z",
+  "os": "linux",
+  "arch": "x64",
+  "node": "v20.20.2",
+  "bun": "N/A",
+  "adapter": "mariadb",
+  "coreVersion": "0.13.0",
+  "adapterVersion": "0.130.0",
+  "results": [
+    {
+      "name": "add-small",
+      "time": 0.3135470413
+    },
+    {
+      "name": "findOne-small",
+      "time": 1.6840099999999438
+    },
+    {
+      "name": "find-search-small",
+      "time": 22.35602800000015
+    },
+    {
+      "name": "find-paginated-small",
+      "time": 16.372209999999995
+    },
+    {
+      "name": "updateOne-small",
+      "time": 1.864828999999645
+    },
+    {
+      "name": "update-search-small",
+      "time": 46.41188999999986
+    },
+    {
+      "name": "removeOne-small",
+      "time": 3.062734999999975
+    },
+    {
+      "name": "remove-search-small",
+      "time": 24.60239599999977
+    },
+    {
+      "name": "add-large",
+      "time": 0.27240254778
+    },
+    {
+      "name": "findOne-large",
+      "time": 1.0711819999996806
+    },
+    {
+      "name": "find-search-large",
+      "time": 1.2034599999969942
+    },
+    {
+      "name": "find-paginated-large",
+      "time": 237.45178000000305
+    },
+    {
+      "name": "updateOne-large",
+      "time": 5.210393999994267
+    },
+    {
+      "name": "update-search-large",
+      "time": 3.888708000005863
+    },
+    {
+      "name": "removeOne-large",
+      "time": 0.6674790000033681
+    },
+    {
+      "name": "remove-search-large",
+      "time": 3.482159999999567
+    },
+    {
+      "name": "add-small",
+      "time": 0.2839555829
+    },
+    {
+      "name": "findOne-small",
+      "time": 1.6231980000002295
+    },
+    {
+      "name": "find-search-small",
+      "time": 36.87466800000038
+    },
+    {
+      "name": "find-paginated-small",
+      "time": 27.35170100000005
+    },
+    {
+      "name": "updateOne-small",
+      "time": 4.71225000000004
+    },
+    {
+      "name": "update-search-small",
+      "time": 44.448659000000134
+    },
+    {
+      "name": "removeOne-small",
+      "time": 2.445137000000159
+    },
+    {
+      "name": "remove-search-small",
+      "time": 22.394855000000007
+    },
+    {
+      "name": "add-large",
+      "time": 0.319913848265
+    },
+    {
+      "name": "findOne-large",
+      "time": 0.5863479999970878
+    },
+    {
+      "name": "find-search-large",
+      "time": 1.4415589999989606
+    },
+    {
+      "name": "find-paginated-large",
+      "time": 427.3177640000067
+    },
+    {
+      "name": "updateOne-large",
+      "time": 1.4482280000083847
+    },
+    {
+      "name": "update-search-large",
+      "time": 4.39878500001214
+    },
+    {
+      "name": "removeOne-large",
+      "time": 0.8782240000000456
+    },
+    {
+      "name": "remove-search-large",
+      "time": 2.916486000001896
+    },
+    {
+      "name": "add-small",
+      "time": 0.2288646812
+    },
+    {
+      "name": "findOne-small",
+      "time": 1.5864950000000135
+    },
+    {
+      "name": "find-search-small",
+      "time": 45.82373499999994
+    },
+    {
+      "name": "find-paginated-small",
+      "time": 52.05947800000013
+    },
+    {
+      "name": "updateOne-small",
+      "time": 8.893379000000095
+    },
+    {
+      "name": "update-search-small",
+      "time": 40.99173499999961
+    },
+    {
+      "name": "removeOne-small",
+      "time": 2.3841580000002978
+    },
+    {
+      "name": "remove-search-small",
+      "time": 18.060547999999926
+    },
+    {
+      "name": "add-large",
+      "time": 0.226139295275
+    },
+    {
+      "name": "findOne-large",
+      "time": 0.6540580000000773
+    },
+    {
+      "name": "find-search-large",
+      "time": 1.901174999999057
+    },
+    {
+      "name": "find-paginated-large",
+      "time": 742.2598359999974
+    },
+    {
+      "name": "updateOne-large",
+      "time": 2.506759999996575
+    },
+    {
+      "name": "update-search-large",
+      "time": 3.5030409999963013
+    },
+    {
+      "name": "removeOne-large",
+      "time": 1.0583929999993416
+    },
+    {
+      "name": "remove-search-large",
+      "time": 3.607608000005712
+    }
+  ]
+}
